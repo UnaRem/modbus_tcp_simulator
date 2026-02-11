@@ -712,11 +712,13 @@ profiles:
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 333
         name: "电池欠压保护"
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 334
         name: "功率调度关联BMS使能"
         reg_type: holding
@@ -983,11 +985,13 @@ profiles:
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 764
         name: "直流充电最大电流"
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 765
         name: "交流放电最大功率"
         reg_type: holding
@@ -2190,11 +2194,13 @@ profiles:
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 333
         name: "电池欠压保护"
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 334
         name: "功率调度关联BMS使能"
         reg_type: holding
@@ -2456,11 +2462,13 @@ profiles:
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 764
         name: "直流充电最大电流"
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 765
         name: "交流放电最大功率"
         reg_type: holding
@@ -3396,11 +3404,13 @@ profiles:
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 333
         name: "电池欠压保护"
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 334
         name: "功率调度关联BMS使能"
         reg_type: holding
@@ -3632,6 +3642,7 @@ profiles:
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 765
         name: "交流放电最大功率"
         reg_type: holding
@@ -4542,11 +4553,13 @@ profiles:
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 333
         name: "电池欠压保护"
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 334
         name: "功率调度关联BMS使能"
         reg_type: holding
@@ -4778,6 +4791,7 @@ profiles:
         reg_type: holding
         data_type: int16
         access: rw
+        scale: 0.1
       - address: 765
         name: "交流放电最大功率"
         reg_type: holding

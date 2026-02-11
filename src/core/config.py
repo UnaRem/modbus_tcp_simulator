@@ -139,6 +139,7 @@ def _load_doc_comment_map(path: Path, columns: list[str]) -> dict[int, str]:
 _RANGE_PATTERN = re.compile(r"(-?\d+(?:\.\d+)?)\s*(?:~|～|－|—|–|-)\s*(-?\d+(?:\.\d+)?)")
 _ENUM_PATTERN = re.compile(r"(0x[0-9a-fA-F]+|\d+)\s*(?:[:：]|-)(?=[^0-9])")
 _MAX_ONLY_PATTERN = re.compile(r"[~～]\s*(-?\d+(?:\.\d+)?)")
+_DEFAULT_PATTERN = re.compile(r"(?:default|默认)\s*[:：]\s*(-?\d+(?:\.\d+)?)", re.IGNORECASE)
 
 
 def _extract_limits(text: str) -> tuple[float, float] | None:
@@ -165,6 +166,15 @@ def _extract_limits(text: str) -> tuple[float, float] | None:
     return None
 
 
+def _extract_default(text: str) -> float | None:
+    if not text:
+        return None
+    match = _DEFAULT_PATTERN.search(text)
+    if not match:
+        return None
+    return float(match.group(1))
+
+
 def _clamp_to_type(value: float, data_type: str) -> float:
     if data_type == "int16":
         return float(max(-32768, min(32767, int(round(value)))))
@@ -188,24 +198,27 @@ def _boundary_default(
     scale: float,
     offset: float,
     limit: tuple[float, float] | None,
+    default_value: float | None,
 ):
     if reg_type in ("coil", "discrete") or (bits and isinstance(bits, dict) and len(bits) > 0):
         return int(bit_value)
     mode = str(boundary_types.get(data_type, "min")).strip().lower()
     use_max = mode == "max"
     if data_type in ("int16", "uint16", "int32", "uint32", "float32"):
-        if data_type == "int16":
-            raw_base = 32767 if use_max else -32768
-        elif data_type == "uint16":
-            raw_base = 65535 if use_max else 0
-        elif data_type == "int32":
-            raw_base = 2147483647 if use_max else -2147483648
-        elif data_type == "uint32":
-            raw_base = 4294967295 if use_max else 0
+        if default_value is not None:
+            eng_value = float(default_value)
         else:
-            raw_base = _FLOAT32_MAX if use_max else -_FLOAT32_MAX
-
-        eng_value = (float(raw_base) * float(scale)) + float(offset)
+            if data_type == "int16":
+                raw_base = 32767 if use_max else -32768
+            elif data_type == "uint16":
+                raw_base = 65535 if use_max else 0
+            elif data_type == "int32":
+                raw_base = 2147483647 if use_max else -2147483648
+            elif data_type == "uint32":
+                raw_base = 4294967295 if use_max else 0
+            else:
+                raw_base = _FLOAT32_MAX if use_max else -_FLOAT32_MAX
+            eng_value = (float(raw_base) * float(scale)) + float(offset)
         if limit:
             eng_min, eng_max = limit
             if eng_value < eng_min:
@@ -663,6 +676,7 @@ def build_device_registry(cfg: dict, base_dir: Path) -> DeviceRegistry:
             if boundary_enabled:
                 comment_text = doc_comments.get(int(item.get("address")))
                 limit = _extract_limits(comment_text) if comment_text else None
+                default_override = _extract_default(comment_text) if comment_text else None
                 default_value = _boundary_default(
                     reg_type=reg_type,
                     data_type=data_type,
@@ -673,6 +687,7 @@ def build_device_registry(cfg: dict, base_dir: Path) -> DeviceRegistry:
                     scale=float(item.get("scale") or 1.0),
                     offset=float(item.get("offset") or 0.0),
                     limit=limit,
+                    default_value=default_override,
                 )
 
             reg = RegisterDef(
