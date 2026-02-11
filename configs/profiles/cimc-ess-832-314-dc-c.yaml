@@ -1,0 +1,1119 @@
+profiles:
+  cimc-ess-832-314-dc-c:
+    description: "来源: docs/设备数据点表/cimc-ess-832-314-dc-c.md"
+    registers:
+      - address: 8193
+        name: "Rack运行状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "0: 正常（电池簇主回路继电器闭合，充电和放电功率不为0）;       1: 禁充（电池簇主回路继电器闭合，允许充电功率为0）;      2: 禁放（电池簇主回路继电器闭合，允许放电功率为0）;       3: 待机（电池簇主回路继电器闭合，充电和放电功率均为0）;                        4: 停机（电池簇主回路继电器断开，充电和放电功率均为0）;"
+      - address: 8194
+        name: "Rack预充电阶段"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "0：断网（主正、主负、预充断开）      1：启动并网（预充闭合、主负，断开主正）      2：并网中（预充和主正、主负闭合）      3：并网成功（预充断开，主正、主负闭合）      4：并网失败（预充失败后发送此状态）"
+      - address: 8195
+        name: "Rack接触器状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "0x0: 断开, 0x1: 闭合;"
+        bits:
+          0: "主接触状态"
+          1: "预充接触器状态"
+          2: "主负接触状态"
+          3: "隔离开关状态"
+      - address: 8196
+        name: "Rack故障"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "Bit0：BMU初始化故障；      Bit1：BCU初始化故障；      Bit2：若有熔断器状态检测，则真实反馈；若无熔断器状态检测，默认发0；      Bit3：总正/总负继电器粘连状态上报；      Bit4：BMU与BCU之间的主从通讯内网故障；      Bit5:   默认发0；      Bit6:   电流采集异常，或电流传感器故障；      Bit7:   报绝缘故障      Bit8:   隔离开关在断开情况下，此位置发1；"
+        bits:
+          0: "BMU硬件故障"
+          1: "BCU硬件故障"
+          2: "熔断器故障"
+          3: "接触器粘连故障"
+          4: "BMU通信故障"
+          5: "BAU通信故障"
+          6: "电流传感器故障"
+          7: "绝缘监测设备故障"
+          8: "隔开开关异常断开"
+          9: "----预充故障"
+          10: "----总压压差故障"
+          11: "----热失控故障"
+          12: "----环境温度高温"
+          13: "----电流异常"
+          14: "---供电电压异常"
+          15: "---BMS断继电器故障总标志位"
+      - address: 8197
+        name: "Rack一级报警"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "Bit11:   若无极柱温度采集时，默认发送正常；若有极柱温度采集，请按照BMS技术协议规定的触发条件发送。      Bit12: 若无高压连接器温度采集时，默认发送正常；若有高压连接器温度采集，请按照BMS技术协议规定的触发条件发送。"
+        bits:
+          0: "总电压过压一级报警"
+          1: "总电压欠压一级报警"
+          2: "单体过压一级报警"
+          3: "单体欠压一级报警"
+          4: "放电电流过大一级报警"
+          5: "充电电流过大一级报警"
+          6: "放电电池过温一级报警"
+          7: "放电电池欠温一级报警"
+          8: "充电电池过温一级报警"
+          9: "充电电池欠温一级报警"
+          10: "绝缘阻值过低一级报警"
+          11: "极柱温度过高一级报警"
+          12: "高压箱连接器温度过高一级报警"
+          13: "单体压差过高一级报警"
+          14: "单体温差过高一级报警"
+          15: "SOC低一级报警"
+      - address: 8198
+        name: "Rack二级报警"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "Bit11:   若无极柱温度采集时，默认发送正常；若有极柱温度采集，请按照BMS技术协议规定的触发条件发送。      Bit12: 若无高压连接器温度采集时，默认发送正常；若有高压连接器温度采集，请按照BMS技术协议规定的触发条件发送。"
+        bits:
+          0: "总电压过压二级报警"
+          1: "总电压欠压二级报警"
+          2: "单体过压二级报警"
+          3: "单体欠压二级报警"
+          4: "放电电流过大二级报警"
+          5: "充电电流过大二级报警"
+          6: "放电电池过温二级报警"
+          7: "放电电池欠温二级报警"
+          8: "充电电池过温二级报警"
+          9: "充电电池欠温二级报警"
+          10: "绝缘阻值过低二级报警"
+          11: "极柱温度过高二级报警"
+          12: "高压箱连接器温度过高二级报警"
+          13: "单体压差过高二级报警"
+          14: "单体温差过高二级报警"
+          15: "SOC低二级报警"
+      - address: 8199
+        name: "Rack三级报警"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "Bit11:   若无极柱温度采集时，默认发送正常；若有极柱温度采集，请按照BMS技术协议规定的触发条件发送。      Bit12: 若无高压连接器温度采集时，默认发送正常；若有高压连接器温度采集，请按照BMS技术协议规定的触发条件发送。"
+        bits:
+          0: "总电压过压三级报警"
+          1: "总电压欠压三级报警"
+          2: "单体过压三级报警"
+          3: "单体欠压三级报警"
+          4: "放电电流过大三级报警"
+          5: "充电电流过大三级报警"
+          6: "放电电池过温三级报警"
+          7: "放电电池欠温三级报警"
+          8: "充电电池过温三级报警"
+          9: "充电电池欠温三级报警"
+          10: "绝缘阻值过低三级报警"
+          11: "极柱温度过高三级报警"
+          12: "高压箱连接器温度过高三级报警"
+          13: "单体压差过高三级报警"
+          14: "单体温差过高三级报警"
+          15: "SOC低三级报警"
+      - address: 8200
+        name: "Rack切入失败原因"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "单簇：默认Bit0/Bit1为0；      多簇直流侧并机：若有BCU未能并机成功，发送对应故障位；Bit0：此簇电池压差不满足并机压差要求；Bit1：默认发0；"
+        bits:
+          0: "模组压差超限"
+          1: "允许切入超时"
+      - address: 8201
+        name: "Rack未启动切入原因"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        bits:
+          0: "模组压差超限"
+          1: "Type1报警未全部解除"
+          2: "绝缘报警未解除"
+          3: "不满足充电条件的切入失败"
+          4: "不满足放电条件的切入失败"
+          5: "CriticalAlarm   严重告警未全解除"
+      - address: 8202
+        name: "RACK的LINK总压"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+        comment: "HV1点电压"
+      - address: 8203
+        name: "Rack电池总电压"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+        comment: "电压"
+      - address: 8204
+        name: "Rack电池总电流"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+        comment: "注意电流方向"
+      - address: 8205
+        name: "Rack充放电指示"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "静置：主回路电流∈（放电状态进入的电流参数，充电状态进入的电流参数）"
+      - address: 8206
+        name: "RackSOC"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "电池簇的显示SOC"
+      - address: 8207
+        name: "RackSOH"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "电池簇的SOH"
+      - address: 8208
+        name: "Rack绝缘值"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KΩ"
+        comment: "Fixed value   before contactor close; BMS IMD Disabled after contactor close.（正极/负极取小值）"
+      - address: 8209
+        name: "Rack正极绝缘值"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KΩ"
+        comment: "Fixed value before   contactor close; BMS IMD Disabled after contactor close."
+      - address: 8211
+        name: "Rack最大充电电流"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+        comment: "充电允许电流（SOP）"
+      - address: 8212
+        name: "Rack最大放电电流"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+        comment: "放电允许电流（SOP）"
+      - address: 8213
+        name: "Rack单体电压最高节序号"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "1：代表整簇的从负极数第1个电芯；      2：代表整簇的从负极数第2个电芯；      3：代表整簇的从负极数第3个电芯；      ...      N：代表整簇的从负极数第N个电芯；（总正位置）"
+      - address: 8214
+        name: "Rack单体最高电压值"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 8215
+        name: "Rack单体电压最低节序号"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "1：代表整簇的从负极数第1个电芯；      2：代表整簇的从负极数第2个电芯；      3：代表整簇的从负极数第3个电芯；      ...      N：代表整簇的从负极数第N个电芯；（总正位置）"
+      - address: 8216
+        name: "Rack单体最低电压值"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "Mv"
+      - address: 8217
+        name: "Rack单体温度最高节序号"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "1：最负极采集从控的最低编号温感；      2：最负极采集从控的次低编号温感；      ...      N-1：最正端采集从控的次高编号温感；      N：最正端采集从控的最高编号温感；"
+      - address: 8218
+        name: "Rack单体温度最高值"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 8219
+        name: "Rack单体温度最低节序号"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        comment: "1：最负极采集从控的最低编号温感；      2：最负极采集从控的次低编号温感；      ...      N-1：最正端采集从控的次高编号温感；      N：最正端采集从控的最高编号温感；"
+      - address: 8220
+        name: "Rack单体温度最低值"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 8221
+        name: "Rack平均电压"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "mV"
+        comment: "单体平均电压"
+      - address: 8222
+        name: "Rack平均温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "电芯单体平均温度"
+      - address: 8223
+        name: "Rack单体累加和总压"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 8224
+        name: "Rack高压箱温度1"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8225
+        name: "Rack高压箱温度2"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8226
+        name: "Rack高压箱温度3"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8227
+        name: "Rack高压箱温度4"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8228
+        name: "Rack高压箱温度5"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8229
+        name: "Rack高压箱温度6"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8230
+        name: "Rack高压箱温度7"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8231
+        name: "Rack高压箱温度8"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8232
+        name: "可充电量"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8233
+        name: "可放电量"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8234
+        name: "最近一次充电电量"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8235
+        name: "最近一次放电电量"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8236
+        name: "累计充电电量高位"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8237
+        name: "累计充电电量低位"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8238
+        name: "累计放电电量高位"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8239
+        name: "累计放电电量低位"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8240
+        name: "日充电量"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8241
+        name: "日放电量"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "KWH"
+      - address: 8736
+        name: "Pack1正极柱温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8799
+        name: "Pack64正极柱温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8800
+        name: "Pack1负极柱温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 8863
+        name: "Pack64负极柱温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 9216
+        name: "Rack单体电池电压"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 9727
+        name: "Rack单体电池电压"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 9728
+        name: "Rack单体电池温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 10239
+        name: "Rack单体电池温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12289
+        name: "TMS机组运行状态（风冷空调也用这个）"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12290
+        name: "TMS供液温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12291
+        name: "TMS回液温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12292
+        name: "TMS运行模式（风冷空调也用这个）"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12293
+        name: "TMS恒温方式预设温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12294
+        name: "制冷开启温度   （风冷空调也用这个）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+      - address: 12295
+        name: "制冷停止温度   （风冷空调也用这个）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+      - address: 12296
+        name: "制热开启温度   （风冷空调也用这个）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+      - address: 12297
+        name: "制热停止温度   （风冷空调也用这个）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+      - address: 12298
+        name: "故障字1："
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12299
+        name: "故障字2："
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12300
+        name: "故障字3："
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12301
+        name: "故障字4："
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12303
+        name: "故障字5："
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12304
+        name: "供液压力"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "bar"
+      - address: 12305
+        name: "回液压力"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "bar"
+      - address: 12306
+        name: "环境温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12307
+        name: "交流供电电压"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        unit: "V"
+      - address: 12308
+        name: "压缩机转速"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12309
+        name: "进出水压差值"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "bar"
+      - address: 12310
+        name: "软件版本"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12311
+        name: "产品机型"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12312
+        name: "供应商代码"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12313
+        name: "吸气温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12314
+        name: "板换温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12315
+        name: "冷凝盘温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12316
+        name: "高压侧压力值"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "bar"
+      - address: 12317
+        name: "低压侧压力值"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "bar"
+      - address: 12318
+        name: "电子膨胀阀开度"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12319
+        name: "机组运行状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        bits:
+          0: "机组运行状态"
+      - address: 12320
+        name: "电表状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12321
+        name: "日正向总电能"
+        reg_type: input
+        data_type: uint32
+        access: ro
+        scale: 1.0
+        unit: "Kwh"
+      - address: 12323
+        name: "日反向总电能"
+        reg_type: input
+        data_type: uint32
+        access: ro
+        scale: 1.0
+        unit: "Kwh"
+      - address: 12325
+        name: "累计正向总电能"
+        reg_type: input
+        data_type: uint32
+        access: ro
+        scale: 1.0
+        unit: "Kwh"
+      - address: 12327
+        name: "累计反向总电能"
+        reg_type: input
+        data_type: uint32
+        access: ro
+        scale: 1.0
+        unit: "Kwh"
+      - address: 12329
+        name: "总有功功率"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "Kw"
+      - address: 12330
+        name: "A相有功功率"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "Kw"
+      - address: 12331
+        name: "B相有功功率"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "Kw"
+      - address: 12332
+        name: "C相有功功率"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "Kw"
+      - address: 12352
+        name: "除湿器运行状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12353
+        name: "温度启动值"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12354
+        name: "温度关闭值"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12355
+        name: "除湿启动值"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 1.0
+        unit: "%RH"
+      - address: 12356
+        name: "除湿关闭值"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 1.0
+        unit: "%RH"
+      - address: 12357
+        name: "环境湿度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 1.0
+        unit: "%RH"
+      - address: 12358
+        name: "环境温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12359
+        name: "内部温度"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12384
+        name: "消防运行状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12385
+        name: "水浸运行状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12386
+        name: "烟雾运行状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12387
+        name: "CO浓度"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12392
+        name: "风扇工作状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 12393
+        name: "T1温度值"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12394
+        name: "T2温度值"
+        reg_type: input
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 12395
+        name: "风扇1转速"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 1.0
+        unit: "RPM"
+      - address: 12396
+        name: "风扇2转速"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 1.0
+        unit: "RPM"
+      - address: 12397
+        name: "风扇3转速"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 1.0
+        unit: "RPM"
+      - address: 12398
+        name: "风扇4转速"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        scale: 1.0
+        unit: "RPM"
+      - address: 16384
+        name: "紧急下电指令（断脱扣断路器）"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        comment: "BMS接受到1:下电指令   后，执行下电流程，当回路电流小于5A后，断开总负、总正继电器。然后断脱扣继电器。"
+      - address: 16386
+        name: "BMS重启指令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        comment: "BMS接受到1:下电指令   后，执行下电流程，当回路电流小于5A后，断开总负、总正继电器。然后重启。"
+      - address: 16387
+        name: "BMS版本号"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        comment: "版本号按照10进制回复，      例如1.0.1，回复101,      例如3.4.6，回复346"
+      - address: 16388
+        name: "软件FWID"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        comment: "FWID共11个字符，使用6个字节，3个地址进行回复      例如FE37F194301            0x4004回复：FE 37      0x4005回复：F1 94      0x4006回复：30 10 (最后一个字节用0补齐)"
+      - address: 16394
+        name: "硬件HDIW"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        comment: "FWID共32个字符      使用16个字节，8个地址进行回复      例如34504A45110931381209164D70311417            0x400A回复：34 50      0x400B回复：4A 45      。。。      0x4011回复：14 17"
+      - address: 16640
+        name: "BMS发指令给TMS开关机"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        comment: "0x0: 程序默认控制，不做强控      0x1: 强控开机      0x2: 强控关机"
+      - address: 16641
+        name: "BMS发指令给TMS控制工作模式"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        comment: "0x0: 程序默认控制，不做强控      0x1: 强控制冷      0x2: 强控制热      0x3: 强控自循环      0x4: 强控待机      0xFF: 无效值，不响应"
+      - address: 16642
+        name: "开启制冷点"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 16643
+        name: "关闭制冷点"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 16644
+        name: "开启制热点"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 16645
+        name: "关闭制热点"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 16646
+        name: "制冷目标温度"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 16647
+        name: "制热目标温度"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 16648
+        name: "电芯温差（自循环温度）"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "℃"
+        comment: "有则正常发送；无则发送-50℃；"
+      - address: 16649
+        name: "除湿开启湿度点"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "%"
+        comment: "有则正常发送；无则发送FF"
+      - address: 16650
+        name: "除湿关闭湿度点"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.1
+        unit: "%"
+        comment: "有则正常发送；无则发送FF"
+      - address: 17664
+        name: "0~15号电芯均衡状态"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        comment: "每个bit代表一个电芯均衡状态；（从0计数）      注意bit0代表第一个电芯，bit15代表第16个电芯"
+        bits:
+          0: "代表第一个电芯"
+          15: "代表第16个电芯"
+      - address: 20481
+        name: "DO总状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        bits:
+          0: "HSS1"
+          1: "HSS2"
+          2: "HSS3"
+          3: "HSS4"
+          4: "HSS5"
+          5: "HSS6"
+          6: "HSS7"
+          7: "HSS8"
+          8: "LSS1"
+          9: "LSS2"
+          10: "LSS3"
+          11: "LSS4"
+          12: "SW_OUT1(干接点输出)"
+          13: "SW_OUT2"
+          14: "SW_OUT3"
+          15: "SW_OUT4"
+      - address: 20482
+        name: "DI总状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        bits:
+          0: "DIH1（DIG_in1A）"
+          1: "DIH2（DIG_in2A）"
+          2: "DIH3"
+          3: "DIH4"
+          4: "DIH5"
+          5: "DIH6"
+          6: "DIH7(OBC)"
+          7: "DIH8（DCC）"
+          8: "DIL1  （switch_in1A）"
+          9: "DIL2 （switch_in2A）"
+          10: "DIL3"
+          11: "DIL4"
+          12: "DIL5"
+          13: "SW_IN1  （湿节点输入）"
+          14: "SW_IN2"
+          15: "SW_IN3"
+      - address: 20483
+        name: "门禁状态"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20484
+        name: "急停状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+      - address: 20485
+        name: "水浸状态"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20486
+        name: "烟感状态"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20487
+        name: "消防本身故障"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20488
+        name: "液位异常状态"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20489
+        name: "交流开关反馈"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20490
+        name: "防雷反馈"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20491
+        name: "消防检测到故障"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20492
+        name: "消防喷洒状态"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20493
+        name: "预留3"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20494
+        name: "预留4"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20495
+        name: "预留5"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20496
+        name: "预留6"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20497
+        name: "预留7"
+        reg_type: input
+        data_type: int16
+        access: ro
+      - address: 20498
+        name: "从机Do总状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        bits:
+          0: "1号HSS1"
+          1: "2号HSS1"
+          2: "3号HSS1"
+          3: "4号HSS1"
+          4: "5号HSS1"
+          5: "6号HSS1"
+          6: "7号HSS1"
+          7: "8号HSS1"
+          8: "1号HSS2"
+          9: "2号HSS2"
+          10: "3号HSS2"
+          11: "4号HSS2"
+          12: "5号HSS2"
+          13: "6号HSS2"
+          14: "7号HSS2"
+          15: "8号HSS2"
+      - address: 20499
+        name: "从机DI总状态"
+        reg_type: input
+        data_type: uint16
+        access: ro
+        bits:
+          0: "1号DIL1"
+          1: "2号DIL1"
+          2: "3号DIL1"
+          3: "4号DIL1"
+          4: "5号DIL1"
+          5: "6号DIL1"
+          6: "7号DIL1"
+          7: "8号DIL1"
+          8: "1号DIL2"
+          9: "2号DIL2"
+          10: "3号DIL2"
+          11: "4号DIL2"
+          12: "5号DIL2"
+          13: "6号DIL2"
+          14: "7号DIL2"
+          15: "8号DIL2"

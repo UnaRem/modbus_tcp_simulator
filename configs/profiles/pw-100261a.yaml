@@ -1,0 +1,7868 @@
+profiles:
+  pw-100261a:
+    description: "来源: docs/设备数据点表/pw-100261a.md"
+    registers:
+      - address: 1301
+        name: "簇总压"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 1302
+        name: "簇总电流"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        offset: 3200.0
+        unit: "A"
+      - address: 1303
+        name: "簇 SOC"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 1304
+        name: "簇 SOH"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 1305
+        name: "簇绝缘正电阻"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "KΩ"
+      - address: 1306
+        name: "簇绝缘负电阻"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "KΩ"
+      - address: 1307
+        name: "最高单体电压 BMU 号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1308
+        name: "最高单体电压箱内序号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1309
+        name: "最高单体电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 1310
+        name: "最低单体电压 BMU 号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1311
+        name: "最低单体电压箱内序号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1312
+        name: "最低单体电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 1313
+        name: "最高单体温度 BMU 号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1314
+        name: "最高单体温度箱内序号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1315
+        name: "最高单体温度值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 1316
+        name: "最低单体温度 BMU 号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1317
+        name: "最低单体温度箱内序号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1318
+        name: "最低单体温度值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 1319
+        name: "最大单体压差值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 1320
+        name: "平均单体电压"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1321
+        name: "最大温度差值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 1322
+        name: "平均温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 1323
+        name: "充电限制电流"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 1324
+        name: "放电限制电流"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 1325
+        name: "簇充放电循环次数"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1326
+        name: "簇单次充电电量"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "kWh"
+      - address: 1327
+        name: "簇单次放电电量"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "kWh"
+      - address: 1328
+        name: "簇累计充电电量"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        scale: 0.1
+        unit: "kWh"
+      - address: 1330
+        name: "簇累计放电电量"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        scale: 0.1
+        unit: "kWh"
+      - address: 1332
+        name: "簇 SOE"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 1333
+        name: "最大模块电压序号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1334
+        name: "最大模块电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 1335
+        name: "最小模块电压序号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1336
+        name: "最小模块电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 1337
+        name: "当日充电电量"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        scale: 0.1
+        unit: "kWh"
+      - address: 1339
+        name: "当日放电电量"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        scale: 0.1
+        unit: "kWh"
+      - address: 1341
+        name: "簇可充电量"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "kWh"
+      - address: 1342
+        name: "簇可放电量"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "kWh"
+      - address: 4501
+        name: "电池簇运行状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "初始化"
+          1: "就绪"
+          2: "放电"
+          3: "充电"
+          4: "告警"
+          5: "故障"
+          6: "未使能"
+      - address: 4502
+        name: "充满标志"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "保留"
+        bits:
+          0: "0-未充满"
+      - address: 4503
+        name: "放空标志"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "保留"
+        bits:
+          0: "0-未放空"
+      - address: 4504
+        name: "簇   I 级报警码"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        bits:
+          0: "放电温度高"
+          1: "放电温度低"
+          2: "单体电压高"
+          3: "单体电压低"
+          4: "单体充电压差大"
+          5: "SOC   低"
+          6: "SOC 高"
+          7: "高压箱极柱温度高"
+          8: "充电电流大"
+          9: "放电电流大"
+          10: "单体充电温差大"
+          11: "绝缘低"
+          12: "总压高"
+          13: "总压低"
+          14: "充电温度高"
+          15: "充电温度低"
+          16: "温升过快"
+          17: "模块电压高"
+          18: "模块电压低"
+          19: "单体放电压差大"
+          20: "模块充电压差大"
+          21: "SOH   低"
+          22: "预留"
+          23: "簇   SOE 低"
+          24: "预留"
+          25: "环流告警"
+          26: "报警复归"
+          27: "电池包极柱温度高"
+          28: "簇间电压差大"
+          29: "簇间电流差大"
+          30: "模块放电压差大"
+          31: "单体放温差大"
+      - address: 4506
+        name: "簇   II 级报警码"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        bits:
+          0: "放电温度高"
+          1: "放电温度低"
+          2: "单体电压高"
+          3: "单体电压低"
+          4: "单体充电压差大"
+          5: "SOC   低"
+          6: "SOC 高"
+          7: "高压箱极柱温度高"
+          8: "充电电流大"
+          9: "放电电流大"
+          10: "单体充电温差大"
+          11: "绝缘低"
+          12: "总压高"
+          13: "总压低"
+          14: "充电温度高"
+          15: "充电温度低"
+          16: "温升过快"
+          17: "模块电压高"
+          18: "模块电压低"
+          19: "单体放电压差大"
+          20: "模块充电压差大"
+          21: "SOH   低"
+          22: "预留"
+          23: "簇   SOE 低"
+          24: "预留"
+          25: "环流告警"
+          26: "报警复归"
+          27: "电池包极柱温度高"
+          28: "簇间电压差大"
+          29: "簇间电流差大"
+          30: "模块放电压差大"
+          31: "单体放温差大"
+      - address: 4508
+        name: "簇   III 级报警码"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        bits:
+          0: "放电温度高"
+          1: "放电温度低"
+          2: "单体电压高"
+          3: "单体电压低"
+          4: "单体充电压差大"
+          5: "SOC   低"
+          6: "SOC 高"
+          7: "高压箱极柱温度高"
+          8: "充电电流大"
+          9: "放电电流大"
+          10: "单体充电温差大"
+          11: "绝缘低"
+          12: "总压高"
+          13: "总压低"
+          14: "充电温度高"
+          15: "充电温度低"
+          16: "温升过快"
+          17: "模块电压高"
+          18: "模块电压低"
+          19: "单体放电压差大"
+          20: "模块充电压差大"
+          21: "SOH   低"
+          22: "预留"
+          23: "簇   SOE 低"
+          24: "预留"
+          25: "环流告警"
+          26: "报警复归"
+          27: "电池包极柱温度高"
+          28: "簇间电压差大"
+          29: "簇间电流差大"
+          30: "模块放电压差大"
+          31: "单体放温差大"
+      - address: 4510
+        name: "簇维护报警码"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        bits:
+          0: "SBMU 硬件故障"
+          1: "SBMU 电池故障"
+          2: "SBMU 通讯故障"
+          3: "温度采集故障"
+          4: "主负继电器故障"
+          5: "主正继电器故障"
+          6: "预充故障"
+          7: "保险丝故障"
+          8: "急停"
+          9: "电流采集异常"
+          10: "总压采集异常"
+          11: "浮充预警"
+          12: "单体极高"
+          13: "单体极低"
+          14: "温度极高"
+          15: "继电器强控"
+          16: "预留"
+          17: "与 SBAU 通讯异常"
+          18: "与 EMS 通讯异常"
+          19: "EMS/PCS 强控"
+          20: "与 PCS 通讯异常"
+          21: "与显示屏通讯异常"
+          22: "风扇故障"
+          23: "预留"
+          24: "预留"
+          25: "预留"
+          26: "初始化阻塞"
+          27: "维护充电"
+          28: "高压箱温度采集故障"
+          29: "被动均衡故障"
+          30: "主动均衡故障"
+          31: "SBCU-QF 断路器故障"
+      - address: 4512
+        name: "簇维护报警码   2"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        bits:
+          0: "环流报警"
+          1: "运行模式设置错误"
+          2: "从控温敏电阻故障"
+          3: "主负熔断器故障"
+          4: "主正熔断器故障"
+          5: "充放电回路连接异常"
+          6: "电池单体热失失控预警"
+          7: "地址分配异常"
+          8: "RTC 异常"
+          9: "FLASH 异常"
+          10: "EEPROM 异常"
+          11: "SBCU AFE 异常"
+          12: "多路选择开关故障"
+          13: "CAN 霍尔通讯超时"
+      - address: 4514
+        name: "SBMU   通讯故障地址"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        bits:
+          0: "第1个从控..."
+      - address: 4516
+        name: "SBMU   硬件故障地址"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+      - address: 4518
+        name: "SBMU   断线故障地址"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+      - address: 4520
+        name: "SBMU   温敏线开路地址"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+      - address: 4522
+        name: "SBMU   均衡故障地址"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+      - address: 4524
+        name: "SBMU   预留故障-1"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+      - address: 4526
+        name: "SBMU   预留故障-2"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+      - address: 4528
+        name: "SBMU   预留故障-3"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+      - address: 4530
+        name: "SBMU   预留故障-4"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+      - address: 10001
+        name: "单体电压   1"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10002
+        name: "单体电压   2"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10003
+        name: "单体电压   3"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10004
+        name: "单体电压   4"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10005
+        name: "单体电压   5"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10006
+        name: "单体电压   6"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10007
+        name: "单体电压   7"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10008
+        name: "单体电压   8"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10009
+        name: "单体电压   9"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10010
+        name: "单体电压   10"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10011
+        name: "单体电压   11"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10012
+        name: "单体电压   12"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10013
+        name: "单体电压   13"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10014
+        name: "单体电压   14"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10015
+        name: "单体电压   15"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10016
+        name: "单体电压   16"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10017
+        name: "单体电压   17"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10018
+        name: "单体电压   18"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10019
+        name: "单体电压   19"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10020
+        name: "单体电压   20"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10021
+        name: "单体电压   21"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10022
+        name: "单体电压   22"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10023
+        name: "单体电压   23"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10024
+        name: "单体电压   24"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10025
+        name: "单体电压   25"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10026
+        name: "单体电压   26"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10027
+        name: "单体电压   27"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10028
+        name: "单体电压   28"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10029
+        name: "单体电压   29"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10030
+        name: "单体电压   30"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10031
+        name: "单体电压   31"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10032
+        name: "单体电压   32"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10033
+        name: "单体电压   33"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10034
+        name: "单体电压   34"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10035
+        name: "单体电压   35"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10036
+        name: "单体电压   36"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10037
+        name: "单体电压   37"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10038
+        name: "单体电压   38"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10039
+        name: "单体电压   39"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10040
+        name: "单体电压   40"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10041
+        name: "单体电压   41"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10042
+        name: "单体电压   42"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10043
+        name: "单体电压   43"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10044
+        name: "单体电压   44"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10045
+        name: "单体电压   45"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10046
+        name: "单体电压   46"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10047
+        name: "单体电压   47"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10048
+        name: "单体电压   48"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10049
+        name: "单体电压   49"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10050
+        name: "单体电压   50"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10051
+        name: "单体电压   51"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10052
+        name: "单体电压   52"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10053
+        name: "单体电压   53"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10054
+        name: "单体电压   54"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10055
+        name: "单体电压   55"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10056
+        name: "单体电压   56"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10057
+        name: "单体电压   57"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10058
+        name: "单体电压   58"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10059
+        name: "单体电压   59"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10060
+        name: "单体电压   60"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10061
+        name: "单体电压   61"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10062
+        name: "单体电压   62"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10063
+        name: "单体电压   63"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10064
+        name: "单体电压   64"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10065
+        name: "单体电压   65"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10066
+        name: "单体电压   66"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10067
+        name: "单体电压   67"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10068
+        name: "单体电压   68"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10069
+        name: "单体电压   69"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10070
+        name: "单体电压   70"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10071
+        name: "单体电压   71"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10072
+        name: "单体电压   72"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10073
+        name: "单体电压   73"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10074
+        name: "单体电压   74"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10075
+        name: "单体电压   75"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10076
+        name: "单体电压   76"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10077
+        name: "单体电压   77"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10078
+        name: "单体电压   78"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10079
+        name: "单体电压   79"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10080
+        name: "单体电压   80"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10081
+        name: "单体电压   81"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10082
+        name: "单体电压   82"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10083
+        name: "单体电压   83"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10084
+        name: "单体电压   84"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10085
+        name: "单体电压   85"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10086
+        name: "单体电压   86"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10087
+        name: "单体电压   87"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10088
+        name: "单体电压   88"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10089
+        name: "单体电压   89"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10090
+        name: "单体电压   90"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10091
+        name: "单体电压   91"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10092
+        name: "单体电压   92"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10093
+        name: "单体电压   93"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10094
+        name: "单体电压   94"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10095
+        name: "单体电压   95"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10096
+        name: "单体电压   96"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10097
+        name: "单体电压   97"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10098
+        name: "单体电压   98"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10099
+        name: "单体电压   99"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10100
+        name: "单体电压   100"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10101
+        name: "单体电压   101"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10102
+        name: "单体电压   102"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10103
+        name: "单体电压   103"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10104
+        name: "单体电压   104"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10105
+        name: "单体电压   105"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10106
+        name: "单体电压   106"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10107
+        name: "单体电压   107"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10108
+        name: "单体电压   108"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10109
+        name: "单体电压   109"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10110
+        name: "单体电压   110"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10111
+        name: "单体电压   111"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10112
+        name: "单体电压   112"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10113
+        name: "单体电压   113"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10114
+        name: "单体电压   114"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10115
+        name: "单体电压   115"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10116
+        name: "单体电压   116"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10117
+        name: "单体电压   117"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10118
+        name: "单体电压   118"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10119
+        name: "单体电压   119"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10120
+        name: "单体电压   120"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10121
+        name: "单体电压   121"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10122
+        name: "单体电压   122"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10123
+        name: "单体电压   123"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10124
+        name: "单体电压   124"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10125
+        name: "单体电压   125"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10126
+        name: "单体电压   126"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10127
+        name: "单体电压   127"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10128
+        name: "单体电压   128"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10129
+        name: "单体电压   129"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10130
+        name: "单体电压   130"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10131
+        name: "单体电压   131"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10132
+        name: "单体电压   132"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10133
+        name: "单体电压   133"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10134
+        name: "单体电压   134"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10135
+        name: "单体电压   135"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10136
+        name: "单体电压   136"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10137
+        name: "单体电压   137"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10138
+        name: "单体电压   138"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10139
+        name: "单体电压   139"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10140
+        name: "单体电压   140"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10141
+        name: "单体电压   141"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10142
+        name: "单体电压   142"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10143
+        name: "单体电压   143"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10144
+        name: "单体电压   144"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10145
+        name: "单体电压   145"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10146
+        name: "单体电压   146"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10147
+        name: "单体电压   147"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10148
+        name: "单体电压   148"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10149
+        name: "单体电压   149"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10150
+        name: "单体电压   150"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10151
+        name: "单体电压   151"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10152
+        name: "单体电压   152"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10153
+        name: "单体电压   153"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10154
+        name: "单体电压   154"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10155
+        name: "单体电压   155"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10156
+        name: "单体电压   156"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10157
+        name: "单体电压   157"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10158
+        name: "单体电压   158"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10159
+        name: "单体电压   159"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10160
+        name: "单体电压   160"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10161
+        name: "单体电压   161"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10162
+        name: "单体电压   162"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10163
+        name: "单体电压   163"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10164
+        name: "单体电压   164"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10165
+        name: "单体电压   165"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10166
+        name: "单体电压   166"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10167
+        name: "单体电压   167"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10168
+        name: "单体电压   168"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10169
+        name: "单体电压   169"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10170
+        name: "单体电压   170"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10171
+        name: "单体电压   171"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10172
+        name: "单体电压   172"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10173
+        name: "单体电压   173"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10174
+        name: "单体电压   174"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10175
+        name: "单体电压   175"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10176
+        name: "单体电压   176"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10177
+        name: "单体电压   177"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10178
+        name: "单体电压   178"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10179
+        name: "单体电压   179"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10180
+        name: "单体电压   180"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10181
+        name: "单体电压   181"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10182
+        name: "单体电压   182"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10183
+        name: "单体电压   183"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10184
+        name: "单体电压   184"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10185
+        name: "单体电压   185"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10186
+        name: "单体电压   186"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10187
+        name: "单体电压   187"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10188
+        name: "单体电压   188"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10189
+        name: "单体电压   189"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10190
+        name: "单体电压   190"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10191
+        name: "单体电压   191"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10192
+        name: "单体电压   192"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10193
+        name: "单体电压   193"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10194
+        name: "单体电压   194"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10195
+        name: "单体电压   195"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10196
+        name: "单体电压   196"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10197
+        name: "单体电压   197"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10198
+        name: "单体电压   198"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10199
+        name: "单体电压   199"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10200
+        name: "单体电压   200"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10201
+        name: "单体电压   201"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10202
+        name: "单体电压   202"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10203
+        name: "单体电压   203"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10204
+        name: "单体电压   204"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10205
+        name: "单体电压   205"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10206
+        name: "单体电压   206"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10207
+        name: "单体电压   207"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10208
+        name: "单体电压   208"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10209
+        name: "单体电压   209"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10210
+        name: "单体电压   210"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10211
+        name: "单体电压   211"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10212
+        name: "单体电压   212"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10213
+        name: "单体电压   213"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10214
+        name: "单体电压   214"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10215
+        name: "单体电压   215"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10216
+        name: "单体电压   216"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10217
+        name: "单体电压   217"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10218
+        name: "单体电压   218"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10219
+        name: "单体电压   219"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10220
+        name: "单体电压   220"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10221
+        name: "单体电压   221"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10222
+        name: "单体电压   222"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10223
+        name: "单体电压   223"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10224
+        name: "单体电压   224"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10225
+        name: "单体电压   225"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10226
+        name: "单体电压   226"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10227
+        name: "单体电压   227"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10228
+        name: "单体电压   228"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10229
+        name: "单体电压   229"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10230
+        name: "单体电压   230"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10231
+        name: "单体电压   231"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10232
+        name: "单体电压   232"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10233
+        name: "单体电压   233"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10234
+        name: "单体电压   234"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10235
+        name: "单体电压   235"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10236
+        name: "单体电压   236"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10237
+        name: "单体电压   237"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10238
+        name: "单体电压   238"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10239
+        name: "单体电压   239"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10240
+        name: "单体电压   240"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10241
+        name: "单体电压   241"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10242
+        name: "单体电压   242"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10243
+        name: "单体电压   243"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10244
+        name: "单体电压   244"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10245
+        name: "单体电压   245"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10246
+        name: "单体电压   246"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10247
+        name: "单体电压   247"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10248
+        name: "单体电压   248"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10249
+        name: "单体电压   249"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10250
+        name: "单体电压   250"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10251
+        name: "单体电压   251"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10252
+        name: "单体电压   252"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10253
+        name: "单体电压   253"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10254
+        name: "单体电压   254"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10255
+        name: "单体电压   255"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10256
+        name: "单体电压   256"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10257
+        name: "单体电压   257"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10258
+        name: "单体电压   258"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10259
+        name: "单体电压   259"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10260
+        name: "单体电压   260"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10261
+        name: "单体电压   261"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10262
+        name: "单体电压   262"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10263
+        name: "单体电压   263"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10264
+        name: "单体电压   264"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10265
+        name: "单体电压   265"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10266
+        name: "单体电压   266"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10267
+        name: "单体电压   267"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10268
+        name: "单体电压   268"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10269
+        name: "单体电压   269"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10270
+        name: "单体电压   270"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10271
+        name: "单体电压   271"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10272
+        name: "单体电压   272"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10273
+        name: "单体电压   273"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10274
+        name: "单体电压   274"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10275
+        name: "单体电压   275"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10276
+        name: "单体电压   276"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10277
+        name: "单体电压   277"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10278
+        name: "单体电压   278"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10279
+        name: "单体电压   279"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10280
+        name: "单体电压   280"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10281
+        name: "单体电压   281"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10282
+        name: "单体电压   282"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10283
+        name: "单体电压   283"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10284
+        name: "单体电压   284"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10285
+        name: "单体电压   285"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10286
+        name: "单体电压   286"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10287
+        name: "单体电压   287"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10288
+        name: "单体电压   288"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10289
+        name: "单体电压   289"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10290
+        name: "单体电压   290"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10291
+        name: "单体电压   291"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10292
+        name: "单体电压   292"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10293
+        name: "单体电压   293"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10294
+        name: "单体电压   294"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10295
+        name: "单体电压   295"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10296
+        name: "单体电压   296"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10297
+        name: "单体电压   297"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10298
+        name: "单体电压   298"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10299
+        name: "单体电压   299"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10300
+        name: "单体电压   300"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10301
+        name: "单体电压   301"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10302
+        name: "单体电压   302"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10303
+        name: "单体电压   303"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10304
+        name: "单体电压   304"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10305
+        name: "单体电压   305"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10306
+        name: "单体电压   306"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10307
+        name: "单体电压   307"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10308
+        name: "单体电压   308"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10309
+        name: "单体电压   309"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10310
+        name: "单体电压   310"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10311
+        name: "单体电压   311"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10312
+        name: "单体电压   312"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10313
+        name: "单体电压   313"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10314
+        name: "单体电压   314"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10315
+        name: "单体电压   315"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10316
+        name: "单体电压   316"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10317
+        name: "单体电压   317"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10318
+        name: "单体电压   318"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10319
+        name: "单体电压   319"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10320
+        name: "单体电压   320"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10321
+        name: "单体电压   321"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10322
+        name: "单体电压   322"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10323
+        name: "单体电压   323"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10324
+        name: "单体电压   324"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10325
+        name: "单体电压   325"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10326
+        name: "单体电压   326"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10327
+        name: "单体电压   327"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10328
+        name: "单体电压   328"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10329
+        name: "单体电压   329"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10330
+        name: "单体电压   330"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10331
+        name: "单体电压   331"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10332
+        name: "单体电压   332"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10333
+        name: "单体电压   333"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10334
+        name: "单体电压   334"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10335
+        name: "单体电压   335"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10336
+        name: "单体电压   336"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10337
+        name: "单体电压   337"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10338
+        name: "单体电压   338"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10339
+        name: "单体电压   339"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10340
+        name: "单体电压   340"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10341
+        name: "单体电压   341"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10342
+        name: "单体电压   342"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10343
+        name: "单体电压   343"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10344
+        name: "单体电压   344"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10345
+        name: "单体电压   345"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10346
+        name: "单体电压   346"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10347
+        name: "单体电压   347"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10348
+        name: "单体电压   348"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10349
+        name: "单体电压   349"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10350
+        name: "单体电压   350"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10351
+        name: "单体电压   351"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10352
+        name: "单体电压   352"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10353
+        name: "单体电压   353"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10354
+        name: "单体电压   354"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10355
+        name: "单体电压   355"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10356
+        name: "单体电压   356"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10357
+        name: "单体电压   357"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10358
+        name: "单体电压   358"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10359
+        name: "单体电压   359"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10360
+        name: "单体电压   360"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10361
+        name: "单体电压   361"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10362
+        name: "单体电压   362"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10363
+        name: "单体电压   363"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10364
+        name: "单体电压   364"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10365
+        name: "单体电压   365"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10366
+        name: "单体电压   366"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10367
+        name: "单体电压   367"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10368
+        name: "单体电压   368"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10369
+        name: "单体电压   369"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10370
+        name: "单体电压   370"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10371
+        name: "单体电压   371"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10372
+        name: "单体电压   372"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10373
+        name: "单体电压   373"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10374
+        name: "单体电压   374"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10375
+        name: "单体电压   375"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10376
+        name: "单体电压   376"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10377
+        name: "单体电压   377"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10378
+        name: "单体电压   378"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10379
+        name: "单体电压   379"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10380
+        name: "单体电压   380"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10381
+        name: "单体电压   381"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10382
+        name: "单体电压   382"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10383
+        name: "单体电压   383"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10384
+        name: "单体电压   384"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10385
+        name: "单体电压   385"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10386
+        name: "单体电压   386"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10387
+        name: "单体电压   387"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10388
+        name: "单体电压   388"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10389
+        name: "单体电压   389"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10390
+        name: "单体电压   390"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10391
+        name: "单体电压   391"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10392
+        name: "单体电压   392"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10393
+        name: "单体电压   393"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10394
+        name: "单体电压   394"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10395
+        name: "单体电压   395"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10396
+        name: "单体电压   396"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10397
+        name: "单体电压   397"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10398
+        name: "单体电压   398"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10399
+        name: "单体电压   399"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10400
+        name: "单体电压   400"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10401
+        name: "单体电压   401"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10402
+        name: "单体电压   402"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10403
+        name: "单体电压   403"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10404
+        name: "单体电压   404"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10405
+        name: "单体电压   405"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10406
+        name: "单体电压   406"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10407
+        name: "单体电压   407"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10408
+        name: "单体电压   408"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10409
+        name: "单体电压   409"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10410
+        name: "单体电压   410"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10411
+        name: "单体电压   411"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10412
+        name: "单体电压   412"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10413
+        name: "单体电压   413"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10414
+        name: "单体电压   414"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10415
+        name: "单体电压   415"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10416
+        name: "单体电压   416"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10417
+        name: "单体电压   417"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10418
+        name: "单体电压   418"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10419
+        name: "单体电压   419"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10420
+        name: "单体电压   420"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10421
+        name: "单体电压   421"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10422
+        name: "单体电压   422"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10423
+        name: "单体电压   423"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10424
+        name: "单体电压   424"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10425
+        name: "单体电压   425"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10426
+        name: "单体电压   426"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10427
+        name: "单体电压   427"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10428
+        name: "单体电压   428"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10429
+        name: "单体电压   429"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10430
+        name: "单体电压   430"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10431
+        name: "单体电压   431"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10432
+        name: "单体电压   432"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10433
+        name: "单体电压   433"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10434
+        name: "单体电压   434"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10435
+        name: "单体电压   435"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10436
+        name: "单体电压   436"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10437
+        name: "单体电压   437"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10438
+        name: "单体电压   438"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10439
+        name: "单体电压   439"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10440
+        name: "单体电压   440"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10441
+        name: "单体电压   441"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10442
+        name: "单体电压   442"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10443
+        name: "单体电压   443"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10444
+        name: "单体电压   444"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10445
+        name: "单体电压   445"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10446
+        name: "单体电压   446"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10447
+        name: "单体电压   447"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10448
+        name: "单体电压   448"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10449
+        name: "单体电压   449"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10450
+        name: "单体电压   450"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10451
+        name: "单体电压   451"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10452
+        name: "单体电压   452"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10453
+        name: "单体电压   453"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10454
+        name: "单体电压   454"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10455
+        name: "单体电压   455"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10456
+        name: "单体电压   456"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10457
+        name: "单体电压   457"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10458
+        name: "单体电压   458"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10459
+        name: "单体电压   459"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10460
+        name: "单体电压   460"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10461
+        name: "单体电压   461"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10462
+        name: "单体电压   462"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10463
+        name: "单体电压   463"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10464
+        name: "单体电压   464"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10465
+        name: "单体电压   465"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10466
+        name: "单体电压   466"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10467
+        name: "单体电压   467"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10468
+        name: "单体电压   468"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10469
+        name: "单体电压   469"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10470
+        name: "单体电压   470"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10471
+        name: "单体电压   471"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10472
+        name: "单体电压   472"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10473
+        name: "单体电压   473"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10474
+        name: "单体电压   474"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10475
+        name: "单体电压   475"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10476
+        name: "单体电压   476"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10477
+        name: "单体电压   477"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10478
+        name: "单体电压   478"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10479
+        name: "单体电压   479"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10480
+        name: "单体电压   480"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10481
+        name: "单体电压   481"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10482
+        name: "单体电压   482"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10483
+        name: "单体电压   483"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10484
+        name: "单体电压   484"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10485
+        name: "单体电压   485"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10486
+        name: "单体电压   486"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10487
+        name: "单体电压   487"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10488
+        name: "单体电压   488"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10489
+        name: "单体电压   489"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10490
+        name: "单体电压   490"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10491
+        name: "单体电压   491"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10492
+        name: "单体电压   492"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10493
+        name: "单体电压   493"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10494
+        name: "单体电压   494"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10495
+        name: "单体电压   495"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10496
+        name: "单体电压   496"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10497
+        name: "单体电压   497"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10498
+        name: "单体电压   498"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10499
+        name: "单体电压   499"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 10500
+        name: "单体电压   500"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 30001
+        name: "单体温度   1"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30002
+        name: "单体温度   2"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30003
+        name: "单体温度   3"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30004
+        name: "单体温度   4"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30005
+        name: "单体温度   5"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30006
+        name: "单体温度   6"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30007
+        name: "单体温度   7"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30008
+        name: "单体温度   8"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30009
+        name: "单体温度   9"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30010
+        name: "单体温度   10"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30011
+        name: "单体温度   11"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30012
+        name: "单体温度   12"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30013
+        name: "单体温度   13"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30014
+        name: "单体温度   14"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30015
+        name: "单体温度   15"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30016
+        name: "单体温度   16"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30017
+        name: "单体温度   17"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30018
+        name: "单体温度   18"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30019
+        name: "单体温度   19"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30020
+        name: "单体温度   20"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30021
+        name: "单体温度   21"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30022
+        name: "单体温度   22"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30023
+        name: "单体温度   23"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30024
+        name: "单体温度   24"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30025
+        name: "单体温度   25"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30026
+        name: "单体温度   26"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30027
+        name: "单体温度   27"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30028
+        name: "单体温度   28"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30029
+        name: "单体温度   29"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30030
+        name: "单体温度   30"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30031
+        name: "单体温度   31"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30032
+        name: "单体温度   32"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30033
+        name: "单体温度   33"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30034
+        name: "单体温度   34"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30035
+        name: "单体温度   35"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30036
+        name: "单体温度   36"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30037
+        name: "单体温度   37"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30038
+        name: "单体温度   38"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30039
+        name: "单体温度   39"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30040
+        name: "单体温度   40"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30041
+        name: "单体温度   41"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30042
+        name: "单体温度   42"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30043
+        name: "单体温度   43"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30044
+        name: "单体温度   44"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30045
+        name: "单体温度   45"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30046
+        name: "单体温度   46"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30047
+        name: "单体温度   47"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30048
+        name: "单体温度   48"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30049
+        name: "单体温度   49"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30050
+        name: "单体温度   50"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30051
+        name: "单体温度   51"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30052
+        name: "单体温度   52"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30053
+        name: "单体温度   53"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30054
+        name: "单体温度   54"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30055
+        name: "单体温度   55"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30056
+        name: "单体温度   56"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30057
+        name: "单体温度   57"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30058
+        name: "单体温度   58"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30059
+        name: "单体温度   59"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30060
+        name: "单体温度   60"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30061
+        name: "单体温度   61"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30062
+        name: "单体温度   62"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30063
+        name: "单体温度   63"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30064
+        name: "单体温度   64"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30065
+        name: "单体温度   65"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30066
+        name: "单体温度   66"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30067
+        name: "单体温度   67"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30068
+        name: "单体温度   68"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30069
+        name: "单体温度   69"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30070
+        name: "单体温度   70"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30071
+        name: "单体温度   71"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30072
+        name: "单体温度   72"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30073
+        name: "单体温度   73"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30074
+        name: "单体温度   74"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30075
+        name: "单体温度   75"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30076
+        name: "单体温度   76"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30077
+        name: "单体温度   77"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30078
+        name: "单体温度   78"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30079
+        name: "单体温度   79"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30080
+        name: "单体温度   80"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30081
+        name: "单体温度   81"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30082
+        name: "单体温度   82"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30083
+        name: "单体温度   83"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30084
+        name: "单体温度   84"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30085
+        name: "单体温度   85"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30086
+        name: "单体温度   86"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30087
+        name: "单体温度   87"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30088
+        name: "单体温度   88"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30089
+        name: "单体温度   89"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30090
+        name: "单体温度   90"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30091
+        name: "单体温度   91"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30092
+        name: "单体温度   92"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30093
+        name: "单体温度   93"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30094
+        name: "单体温度   94"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30095
+        name: "单体温度   95"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30096
+        name: "单体温度   96"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30097
+        name: "单体温度   97"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30098
+        name: "单体温度   98"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30099
+        name: "单体温度   99"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30100
+        name: "单体温度   100"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30101
+        name: "单体温度   101"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30102
+        name: "单体温度   102"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30103
+        name: "单体温度   103"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30104
+        name: "单体温度   104"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30105
+        name: "单体温度   105"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30106
+        name: "单体温度   106"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30107
+        name: "单体温度   107"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30108
+        name: "单体温度   108"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30109
+        name: "单体温度   109"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30110
+        name: "单体温度   110"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30111
+        name: "单体温度   111"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30112
+        name: "单体温度   112"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30113
+        name: "单体温度   113"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30114
+        name: "单体温度   114"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30115
+        name: "单体温度   115"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30116
+        name: "单体温度   116"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30117
+        name: "单体温度   117"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30118
+        name: "单体温度   118"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30119
+        name: "单体温度   119"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30120
+        name: "单体温度   120"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30121
+        name: "单体温度   121"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30122
+        name: "单体温度   122"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30123
+        name: "单体温度   123"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30124
+        name: "单体温度   124"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30125
+        name: "单体温度   125"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30126
+        name: "单体温度   126"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30127
+        name: "单体温度   127"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30128
+        name: "单体温度   128"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30129
+        name: "单体温度   129"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30130
+        name: "单体温度   130"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30131
+        name: "单体温度   131"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30132
+        name: "单体温度   132"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30133
+        name: "单体温度   133"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30134
+        name: "单体温度   134"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30135
+        name: "单体温度   135"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30136
+        name: "单体温度   136"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30137
+        name: "单体温度   137"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30138
+        name: "单体温度   138"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30139
+        name: "单体温度   139"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30140
+        name: "单体温度   140"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30141
+        name: "单体温度   141"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30142
+        name: "单体温度   142"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30143
+        name: "单体温度   143"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30144
+        name: "单体温度   144"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30145
+        name: "单体温度   145"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30146
+        name: "单体温度   146"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30147
+        name: "单体温度   147"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30148
+        name: "单体温度   148"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30149
+        name: "单体温度   149"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30150
+        name: "单体温度   150"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30151
+        name: "单体温度   151"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30152
+        name: "单体温度   152"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30153
+        name: "单体温度   153"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30154
+        name: "单体温度   154"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30155
+        name: "单体温度   155"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30156
+        name: "单体温度   156"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30157
+        name: "单体温度   157"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30158
+        name: "单体温度   158"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30159
+        name: "单体温度   159"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30160
+        name: "单体温度   160"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30161
+        name: "单体温度   161"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30162
+        name: "单体温度   162"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30163
+        name: "单体温度   163"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30164
+        name: "单体温度   164"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30165
+        name: "单体温度   165"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30166
+        name: "单体温度   166"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30167
+        name: "单体温度   167"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30168
+        name: "单体温度   168"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30169
+        name: "单体温度   169"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30170
+        name: "单体温度   170"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30171
+        name: "单体温度   171"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30172
+        name: "单体温度   172"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30173
+        name: "单体温度   173"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30174
+        name: "单体温度   174"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30175
+        name: "单体温度   175"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30176
+        name: "单体温度   176"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30177
+        name: "单体温度   177"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30178
+        name: "单体温度   178"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30179
+        name: "单体温度   179"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30180
+        name: "单体温度   180"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30181
+        name: "单体温度   181"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30182
+        name: "单体温度   182"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30183
+        name: "单体温度   183"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30184
+        name: "单体温度   184"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30185
+        name: "单体温度   185"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30186
+        name: "单体温度   186"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30187
+        name: "单体温度   187"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30188
+        name: "单体温度   188"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30189
+        name: "单体温度   189"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30190
+        name: "单体温度   190"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30191
+        name: "单体温度   191"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30192
+        name: "单体温度   192"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30193
+        name: "单体温度   193"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30194
+        name: "单体温度   194"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30195
+        name: "单体温度   195"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30196
+        name: "单体温度   196"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30197
+        name: "单体温度   197"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30198
+        name: "单体温度   198"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30199
+        name: "单体温度   199"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30200
+        name: "单体温度   200"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30201
+        name: "单体温度   201"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30202
+        name: "单体温度   202"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30203
+        name: "单体温度   203"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30204
+        name: "单体温度   204"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30205
+        name: "单体温度   205"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30206
+        name: "单体温度   206"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30207
+        name: "单体温度   207"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30208
+        name: "单体温度   208"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30209
+        name: "单体温度   209"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30210
+        name: "单体温度   210"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30211
+        name: "单体温度   211"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30212
+        name: "单体温度   212"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30213
+        name: "单体温度   213"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30214
+        name: "单体温度   214"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30215
+        name: "单体温度   215"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30216
+        name: "单体温度   216"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30217
+        name: "单体温度   217"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30218
+        name: "单体温度   218"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30219
+        name: "单体温度   219"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30220
+        name: "单体温度   220"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30221
+        name: "单体温度   221"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30222
+        name: "单体温度   222"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30223
+        name: "单体温度   223"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30224
+        name: "单体温度   224"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30225
+        name: "单体温度   225"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30226
+        name: "单体温度   226"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30227
+        name: "单体温度   227"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30228
+        name: "单体温度   228"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30229
+        name: "单体温度   229"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30230
+        name: "单体温度   230"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30231
+        name: "单体温度   231"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30232
+        name: "单体温度   232"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30233
+        name: "单体温度   233"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30234
+        name: "单体温度   234"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30235
+        name: "单体温度   235"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30236
+        name: "单体温度   236"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30237
+        name: "单体温度   237"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30238
+        name: "单体温度   238"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30239
+        name: "单体温度   239"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30240
+        name: "单体温度   240"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30241
+        name: "单体温度   241"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30242
+        name: "单体温度   242"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30243
+        name: "单体温度   243"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30244
+        name: "单体温度   244"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30245
+        name: "单体温度   245"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30246
+        name: "单体温度   246"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30247
+        name: "单体温度   247"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30248
+        name: "单体温度   248"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30249
+        name: "单体温度   249"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30250
+        name: "单体温度   250"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30251
+        name: "单体温度   251"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30252
+        name: "单体温度   252"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30253
+        name: "单体温度   253"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30254
+        name: "单体温度   254"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30255
+        name: "单体温度   255"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30256
+        name: "单体温度   256"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30257
+        name: "单体温度   257"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30258
+        name: "单体温度   258"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30259
+        name: "单体温度   259"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30260
+        name: "单体温度   260"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30261
+        name: "单体温度   261"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30262
+        name: "单体温度   262"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30263
+        name: "单体温度   263"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30264
+        name: "单体温度   264"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30265
+        name: "单体温度   265"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30266
+        name: "单体温度   266"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30267
+        name: "单体温度   267"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30268
+        name: "单体温度   268"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30269
+        name: "单体温度   269"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30270
+        name: "单体温度   270"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30271
+        name: "单体温度   271"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30272
+        name: "单体温度   272"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30273
+        name: "单体温度   273"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30274
+        name: "单体温度   274"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30275
+        name: "单体温度   275"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30276
+        name: "单体温度   276"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30277
+        name: "单体温度   277"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30278
+        name: "单体温度   278"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30279
+        name: "单体温度   279"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30280
+        name: "单体温度   280"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30281
+        name: "单体温度   281"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30282
+        name: "单体温度   282"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30283
+        name: "单体温度   283"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30284
+        name: "单体温度   284"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30285
+        name: "单体温度   285"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30286
+        name: "单体温度   286"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30287
+        name: "单体温度   287"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30288
+        name: "单体温度   288"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30289
+        name: "单体温度   289"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30290
+        name: "单体温度   290"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30291
+        name: "单体温度   291"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30292
+        name: "单体温度   292"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30293
+        name: "单体温度   293"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30294
+        name: "单体温度   294"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30295
+        name: "单体温度   295"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30296
+        name: "单体温度   296"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30297
+        name: "单体温度   297"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30298
+        name: "单体温度   298"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30299
+        name: "单体温度   299"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 30300
+        name: "单体温度   300"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44001
+        name: "极柱温度   1"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44002
+        name: "极柱温度   2"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44003
+        name: "极柱温度   3"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44004
+        name: "极柱温度   4"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44005
+        name: "极柱温度   5"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44006
+        name: "极柱温度   6"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44007
+        name: "极柱温度   7"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44008
+        name: "极柱温度   8"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44009
+        name: "极柱温度   9"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44010
+        name: "极柱温度   10"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44011
+        name: "极柱温度   11"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44012
+        name: "极柱温度   12"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44013
+        name: "极柱温度   13"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44014
+        name: "极柱温度   14"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44015
+        name: "极柱温度   15"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44016
+        name: "极柱温度   16"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44017
+        name: "极柱温度   17"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44018
+        name: "极柱温度   18"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44019
+        name: "极柱温度   19"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44020
+        name: "极柱温度   20"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44021
+        name: "极柱温度   21"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44022
+        name: "极柱温度   22"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44023
+        name: "极柱温度   23"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44024
+        name: "极柱温度   24"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44025
+        name: "极柱温度   25"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44026
+        name: "极柱温度   26"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44027
+        name: "极柱温度   27"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44028
+        name: "极柱温度   28"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44029
+        name: "极柱温度   29"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44030
+        name: "极柱温度   30"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44031
+        name: "极柱温度   31"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44032
+        name: "极柱温度   32"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44033
+        name: "极柱温度   33"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44034
+        name: "极柱温度   34"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44035
+        name: "极柱温度   35"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44036
+        name: "极柱温度   36"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44037
+        name: "极柱温度   37"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44038
+        name: "极柱温度   38"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44039
+        name: "极柱温度   39"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44040
+        name: "极柱温度   40"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44041
+        name: "极柱温度   41"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44042
+        name: "极柱温度   42"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44043
+        name: "极柱温度   43"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44044
+        name: "极柱温度   44"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44045
+        name: "极柱温度   45"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44046
+        name: "极柱温度   46"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44047
+        name: "极柱温度   47"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44048
+        name: "极柱温度   48"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44049
+        name: "极柱温度   49"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44050
+        name: "极柱温度   50"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44051
+        name: "极柱温度   51"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44052
+        name: "极柱温度   52"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44053
+        name: "极柱温度   53"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44054
+        name: "极柱温度   54"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44055
+        name: "极柱温度   55"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44056
+        name: "极柱温度   56"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44057
+        name: "极柱温度   57"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44058
+        name: "极柱温度   58"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44059
+        name: "极柱温度   59"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44060
+        name: "极柱温度   60"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44061
+        name: "极柱温度   61"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44062
+        name: "极柱温度   62"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44063
+        name: "极柱温度   63"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44064
+        name: "极柱温度   64"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44065
+        name: "极柱温度   65"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44066
+        name: "极柱温度   66"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44067
+        name: "极柱温度   67"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44068
+        name: "极柱温度   68"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44069
+        name: "极柱温度   69"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44070
+        name: "极柱温度   70"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44071
+        name: "极柱温度   71"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44072
+        name: "极柱温度   72"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44073
+        name: "极柱温度   73"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44074
+        name: "极柱温度   74"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44075
+        name: "极柱温度   75"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44076
+        name: "极柱温度   76"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44077
+        name: "极柱温度   77"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44078
+        name: "极柱温度   78"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44079
+        name: "极柱温度   79"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44080
+        name: "极柱温度   80"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44081
+        name: "极柱温度   81"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44082
+        name: "极柱温度   82"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44083
+        name: "极柱温度   83"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44084
+        name: "极柱温度   84"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44085
+        name: "极柱温度   85"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44086
+        name: "极柱温度   86"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44087
+        name: "极柱温度   87"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44088
+        name: "极柱温度   88"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44089
+        name: "极柱温度   89"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44090
+        name: "极柱温度   90"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44091
+        name: "极柱温度   91"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44092
+        name: "极柱温度   92"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44093
+        name: "极柱温度   93"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44094
+        name: "极柱温度   94"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44095
+        name: "极柱温度   95"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44096
+        name: "极柱温度   96"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44097
+        name: "极柱温度   97"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44098
+        name: "极柱温度   98"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44099
+        name: "极柱温度   99"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 44100
+        name: "极柱温度   100"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46001
+        name: "均衡温度   1"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46002
+        name: "均衡温度   2"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46003
+        name: "均衡温度   3"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46004
+        name: "均衡温度   4"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46005
+        name: "均衡温度   5"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46006
+        name: "均衡温度   6"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46007
+        name: "均衡温度   7"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46008
+        name: "均衡温度   8"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46009
+        name: "均衡温度   9"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46010
+        name: "均衡温度   10"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46011
+        name: "均衡温度   11"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46012
+        name: "均衡温度   12"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46013
+        name: "均衡温度   13"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46014
+        name: "均衡温度   14"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46015
+        name: "均衡温度   15"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46016
+        name: "均衡温度   16"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46017
+        name: "均衡温度   17"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46018
+        name: "均衡温度   18"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46019
+        name: "均衡温度   19"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46020
+        name: "均衡温度   20"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46021
+        name: "均衡温度   21"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46022
+        name: "均衡温度   22"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46023
+        name: "均衡温度   23"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46024
+        name: "均衡温度   24"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46025
+        name: "均衡温度   25"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46026
+        name: "均衡温度   26"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46027
+        name: "均衡温度   27"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46028
+        name: "均衡温度   28"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46029
+        name: "均衡温度   29"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46030
+        name: "均衡温度   30"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46031
+        name: "均衡温度   31"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46032
+        name: "均衡温度   32"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46033
+        name: "均衡温度   33"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46034
+        name: "均衡温度   34"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46035
+        name: "均衡温度   35"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46036
+        name: "均衡温度   36"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46037
+        name: "均衡温度   37"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46038
+        name: "均衡温度   38"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46039
+        name: "均衡温度   39"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46040
+        name: "均衡温度   40"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46041
+        name: "均衡温度   41"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46042
+        name: "均衡温度   42"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46043
+        name: "均衡温度   43"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46044
+        name: "均衡温度   44"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46045
+        name: "均衡温度   45"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46046
+        name: "均衡温度   46"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46047
+        name: "均衡温度   47"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46048
+        name: "均衡温度   48"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46049
+        name: "均衡温度   49"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46050
+        name: "均衡温度   50"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46051
+        name: "均衡温度   51"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46052
+        name: "均衡温度   52"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46053
+        name: "均衡温度   53"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46054
+        name: "均衡温度   54"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46055
+        name: "均衡温度   55"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46056
+        name: "均衡温度   56"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46057
+        name: "均衡温度   57"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46058
+        name: "均衡温度   58"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46059
+        name: "均衡温度   59"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46060
+        name: "均衡温度   60"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46061
+        name: "均衡温度   61"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46062
+        name: "均衡温度   62"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46063
+        name: "均衡温度   63"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46064
+        name: "均衡温度   64"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46065
+        name: "均衡温度   65"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46066
+        name: "均衡温度   66"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46067
+        name: "均衡温度   67"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46068
+        name: "均衡温度   68"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46069
+        name: "均衡温度   69"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46070
+        name: "均衡温度   70"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46071
+        name: "均衡温度   71"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46072
+        name: "均衡温度   72"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46073
+        name: "均衡温度   73"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46074
+        name: "均衡温度   74"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46075
+        name: "均衡温度   75"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46076
+        name: "均衡温度   76"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46077
+        name: "均衡温度   77"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46078
+        name: "均衡温度   78"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46079
+        name: "均衡温度   79"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46080
+        name: "均衡温度   80"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46081
+        name: "均衡温度   81"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46082
+        name: "均衡温度   82"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46083
+        name: "均衡温度   83"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46084
+        name: "均衡温度   84"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46085
+        name: "均衡温度   85"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46086
+        name: "均衡温度   86"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46087
+        name: "均衡温度   87"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46088
+        name: "均衡温度   88"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46089
+        name: "均衡温度   89"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46090
+        name: "均衡温度   90"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46091
+        name: "均衡温度   91"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46092
+        name: "均衡温度   92"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46093
+        name: "均衡温度   93"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46094
+        name: "均衡温度   94"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46095
+        name: "均衡温度   95"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46096
+        name: "均衡温度   96"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46097
+        name: "均衡温度   97"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46098
+        name: "均衡温度   98"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46099
+        name: "均衡温度   99"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 46100
+        name: "均衡温度   100"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50001
+        name: "单体电压高   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50002
+        name: "单体电压高   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50003
+        name: "单体电压高   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50004
+        name: "单体电压高   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50005
+        name: "单体电压低   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50006
+        name: "单体电压低   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50007
+        name: "单体电压低   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50008
+        name: "单体电压低   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50009
+        name: "充电单体压差大   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50010
+        name: "充电单体压差大   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50011
+        name: "充电单体压差大   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50012
+        name: "充电单体压差大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50013
+        name: "总压高   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50014
+        name: "总压高   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50015
+        name: "总压高   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50016
+        name: "总压高   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50017
+        name: "总压低   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50018
+        name: "总压低   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50019
+        name: "总压低   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50020
+        name: "总压低   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50021
+        name: "放电电流大   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50022
+        name: "放电电流大   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50023
+        name: "放电电流大   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50024
+        name: "放电电流大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50025
+        name: "充电电流大   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50026
+        name: "充电电流大   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50027
+        name: "充电电流大   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50028
+        name: "充电电流大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50029
+        name: "绝缘低   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "kΩ"
+      - address: 50030
+        name: "绝缘低   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "kΩ"
+      - address: 50031
+        name: "绝缘低   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "kΩ"
+      - address: 50032
+        name: "绝缘低   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "kΩ"
+      - address: 50033
+        name: "充电温度高   1 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "支持负温"
+      - address: 50034
+        name: "充电温度高   2 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50035
+        name: "充电温度高   3 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50036
+        name: "充电温度高   1 级报警释放值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50037
+        name: "充电温度低   1 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50038
+        name: "充电温度低   2 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50039
+        name: "充电温度低   3 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50040
+        name: "充电温度低   1 级报警释放值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50041
+        name: "放电温度高   1 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50042
+        name: "放电温度高   2 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50043
+        name: "放电温度高   3 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50044
+        name: "放电温度高   1 级报警释放值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50045
+        name: "放电温度低   1 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50046
+        name: "放电温度低   2 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50047
+        name: "放电温度低   3 级报警值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50048
+        name: "放电温度低   1 级报警释放值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50049
+        name: "温差大   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50050
+        name: "温差大   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50051
+        name: "温差大   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50052
+        name: "温差大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50053
+        name: "SOC   低 1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50054
+        name: "SOC   低 2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50055
+        name: "SOC   低 3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50056
+        name: "SOC   低 1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50057
+        name: "SOC   高 1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50058
+        name: "SOC   高 2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50059
+        name: "SOC   高 3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50060
+        name: "SOC   高 1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50061
+        name: "簇间压差大   1 级报警"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+        comment: "累加压差"
+      - address: 50062
+        name: "簇间压差大   2 级报警"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+        comment: "累加压差"
+      - address: 50063
+        name: "簇间压差大   3 级报警"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+        comment: "累加压差"
+      - address: 50064
+        name: "簇间压差大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+        comment: "累加压差"
+      - address: 50065
+        name: "放电单体压差大   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50066
+        name: "放电单体压差大   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50067
+        name: "放电单体压差大   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50068
+        name: "放电单体压差大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50069
+        name: "模块电压高   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50070
+        name: "模块电压高   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50071
+        name: "模块电压高   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50072
+        name: "模块电压高   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50073
+        name: "模块电压低   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50074
+        name: "模块电压低   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50075
+        name: "模块电压低   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50076
+        name: "模块电压低   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50077
+        name: "充电模块压差大   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50078
+        name: "充电模块压差大   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50079
+        name: "充电模块压差大   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50080
+        name: "充电模块压差大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50081
+        name: "放电模块压差大   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50082
+        name: "放电模块压差大   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50083
+        name: "放电模块压差大   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50084
+        name: "放电模块压差大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50085
+        name: "放电温差大   1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50086
+        name: "放电温差大   2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50087
+        name: "放电温差大   3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50088
+        name: "放电温差大   1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50089
+        name: "SOE   低 1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50090
+        name: "SOE   低 2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50091
+        name: "SOE   低 3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50092
+        name: "SOE   低 1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50093
+        name: "SOE   高 1 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50094
+        name: "SOE   高 2 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50095
+        name: "SOE   高 3 级报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50096
+        name: "SOE   高 1 级报警释放值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "%"
+      - address: 50301
+        name: "启动被动均衡压差值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50302
+        name: "启动被动均衡最低单体电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50303
+        name: "风扇开启温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+        comment: "支持负数"
+      - address: 50304
+        name: "风扇关闭温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "℃"
+      - address: 50305
+        name: "风扇单体电压"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50306
+        name: "单簇充电最大允许电流"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50307
+        name: "单簇充电最小允许电流"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50308
+        name: "充电降流单体电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50309
+        name: "充电停止单体电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50310
+        name: "单簇放电最大允许电流"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50311
+        name: "单簇放电最小允许电流"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 50312
+        name: "放电降流单体电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50313
+        name: "放电停止单体电压值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "mV"
+      - address: 50314
+        name: "预充电压"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50315
+        name: "簇累加/采集总差报警值"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 50401
+        name: "年"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 50402
+        name: "月"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 50403
+        name: "日"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 50404
+        name: "时"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 50405
+        name: "分"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 50406
+        name: "秒"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 60101
+        name: "主正继电器状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 60102
+        name: "主负继电器状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 60103
+        name: "主预充继电器状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 60104
+        name: "断路器继电器状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 60105
+        name: "风扇继电器状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "预留"
+      - address: 60106
+        name: "充电继电器状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "预留"
+      - address: 60107
+        name: "放电继电器状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "预留"
+      - address: 60108
+        name: "干接点状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "预留"
+      - address: 1201
+        name: "SBCU   软件版本"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1202
+        name: "SBCU   硬件版本"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1203
+        name: "SBMU1   软件版本"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1204
+        name: "SBMU1   硬件版本"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1261
+        name: "SBMU30   软件版本"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1262
+        name: "SBMU30   硬件版本"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 1001
+        name: "绝缘检测控制"
+        reg_type: holding
+        data_type: uint16
+        access: wo
+        comment: "注意：此区域寄存器为只写 (Write   Only)，通常使用功能码 06 或 16。"
+      - address: 1002
+        name: "使能上高压"
+        reg_type: holding
+        data_type: uint16
+        access: wo
+        comment: "注意：此区域寄存器为只写 (Write   Only)，通常使用功能码 06 或 16。"
+      - address: 1003
+        name: "故障复归"
+        reg_type: holding
+        data_type: uint16
+        access: wo
+        comment: "注意：此区域寄存器为只写 (Write   Only)，通常使用功能码 06 或 16。"

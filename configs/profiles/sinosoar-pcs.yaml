@@ -1,0 +1,5185 @@
+profiles:
+  sinosoar-pcs-sp30hbg2:
+    description: "来源: docs/设备数据点表/sinosoar-pcs-sp30hbg2&sp60hbg2&sp100hx&sp125hx.md (SP30HBG2)"
+    registers:
+      - address: 0
+        name: "版本型号"
+        reg_type: holding
+        data_type: string
+        access: ro
+        length: 1
+      - address: 1
+        name: "机型"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 2
+        name: "子型号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 3
+        name: "PV"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 10
+        name: "U1_DSP_BL版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 12
+        name: "硬件版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 14
+        name: "U1_DSP版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 17
+        name: "COM_X1软件版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 19
+        name: "RTU协议版本号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "Vx.xx"
+      - address: 20
+        name: "COM_X1底标版本号_BL"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 32
+        name: "故障综合"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "故障综合"
+          1: "告警综合"
+          2: "启停状态"
+          3: "并网状态"
+          4: "离网状态"
+          5: "PV1状态"
+          6: "PV1状态"
+          7: "DCDC运行状态"
+      - address: 50
+        name: "逆变故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "逆变故障"
+          1: "N线异常"
+          2: "并机故障"
+          3: "同步信号故障"
+          4: "继电器故障"
+          5: "逐波限流"
+          6: "逆变软起失败"
+          7: "AC短路故障"
+          8: "AC侧过载保护"
+          9: "AC三相不平衡过载保护"
+          10: "离网输出电压低"
+          11: "离网频率高"
+          12: "离网频率低"
+          13: "正在过载告警"
+          14: "逐波限流告警"
+          15: "机器限额运行标志"
+      - address: 51
+        name: "母线不平衡"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "母线不平衡"
+          1: "母线过压"
+          2: "母线欠压"
+          3: "母线硬件异常"
+          4: "母线电容软启过程中"
+          5: "DC输入反接"
+          6: "DC输入过压"
+          7: "DC输入欠压"
+          8: "DC1过流"
+          9: "DC2过流"
+          10: "DC硬件过流"
+          11: "PV硬件过流"
+          12: "不平衡过流"
+          13: "IGBT过温"
+          14: "DC电流不平衡"
+          15: "DC接触器故障"
+      - address: 52
+        name: "电网频率低"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "电网频率低"
+          1: "电网频率高"
+          2: "电网电压低"
+          3: "电网电压高"
+          4: "电网反序"
+          6: "电压快检异常"
+          7: "孤岛故障"
+          8: "电流过流"
+          9: "N线电流过流"
+          10: "电感电流过流"
+          11: "低压穿越故障"
+          12: "高压穿越故障"
+          13: "电网正常标志"
+          14: "漏电流告警"
+      - address: 53
+        name: "防雷故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "防雷故障"
+          1: "风扇告警"
+          2: "绝缘故障"
+          3: "模式错误"
+          4: "辅助电源故障"
+          5: "系统故障汇总"
+          6: "COM通信板故障"
+          7: "BMS有故障"
+          8: "模块过温"
+          9: "IGBT温度异常"
+          10: "外部FLASH异常"
+          11: "BMS通信告警"
+          12: "内部通信故障"
+          13: "MCAN异常"
+          14: "PCAN异常"
+          15: "CPLD异常"
+      - address: 54
+        name: "光伏1电压低"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "光伏1电压低"
+          1: "光伏2电压低"
+          2: "光伏1电压高"
+          3: "光伏2电压高"
+          4: "光伏1输入反接"
+          5: "光伏2输入反接"
+          6: "PV1过流"
+          7: "PV2过流"
+      - address: 55
+        name: "电网(或油机)侧频率低故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "电网(或油机)侧频率低故障"
+          1: "电网(或油机)侧频率高"
+          2: "电网(或油机)侧电压低"
+          3: "电网(或油机)侧电压高"
+          4: "电网(或油机)电压正常"
+          5: "电网(或油机)锁相OK"
+          6: "电网(或油机)反序"
+          7: "电网电压Md值高"
+          8: "Rec"
+          9: "Rec"
+          10: "rec"
+          11: "rec"
+          12: "rec"
+          13: "电网(或油机)频率正常"
+          14: "电网(或油机)电压正常"
+          15: "电网(或油机)快检故障"
+      - address: 100
+        name: "逆变电压频率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "HZ"
+      - address: 101
+        name: "模块端口AB线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 102
+        name: "模块端口BC线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 103
+        name: "模块端口CA线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 104
+        name: "A相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 105
+        name: "B相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 106
+        name: "C相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 107
+        name: "模块端口A相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 108
+        name: "模块端口B相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 109
+        name: "模块端口C相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 110
+        name: "A相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 111
+        name: "B相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 112
+        name: "C相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 113
+        name: "A相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 114
+        name: "B相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 115
+        name: "C相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 116
+        name: "A相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 117
+        name: "B相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 118
+        name: "C相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 119
+        name: "A相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 120
+        name: "B相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 121
+        name: "C相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 122
+        name: "三相总有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 123
+        name: "三相总无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 124
+        name: "三相总视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 125
+        name: "三相总PF值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 126
+        name: "交流放电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 128
+        name: "交流充电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 130
+        name: "母线电压P"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 131
+        name: "母线电压N"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 132
+        name: "模块最高温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 135
+        name: "有功功率调度"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 136
+        name: "无功功率期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 141
+        name: "直流功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 142
+        name: "直流电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 143
+        name: "直流电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 144
+        name: "直流充电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh   数据仅供参考"
+      - address: 146
+        name: "直流放电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh 数据仅供参考"
+      - address: 150
+        name: "光伏1电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 151
+        name: "光伏1电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 152
+        name: "光伏1功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 153
+        name: "光伏2电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 154
+        name: "光伏2电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 155
+        name: "光伏2功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 162
+        name: "光伏1发电电量"
+        reg_type: holding
+        data_type: int32
+        access: ro
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 164
+        name: "光伏2发电电量"
+        reg_type: holding
+        data_type: int32
+        access: ro
+        scale: 0.1
+        unit: "kWh 数据仅供参考"
+      - address: 170
+        name: "电网频率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "Hz"
+      - address: 174
+        name: "电网A相电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 175
+        name: "电网B相电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 176
+        name: "电网C相电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 177
+        name: "电网A相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 178
+        name: "电网B相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 179
+        name: "电网C相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 180
+        name: "电网A相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 181
+        name: "电网B相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 182
+        name: "电网C相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 186
+        name: "电网A相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 187
+        name: "电网B相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 188
+        name: "电网C相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 192
+        name: "电网总有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 194
+        name: "电网总视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 196
+        name: "电网充电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考   下电不保存"
+      - address: 198
+        name: "电网放电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh 数据仅供参考   下电不保存"
+      - address: 228
+        name: "A相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 229
+        name: "B相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 230
+        name: "C相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 317
+        name: "DO输出默认干接点"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "Y1为绿灯      Y2为红灯      默认：0"
+      - address: 319
+        name: "EPO急停使能输入取反"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 320
+        name: "COM波特率，精度为位/秒"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 321
+        name: "SCI停止位"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 322
+        name: "SCI奇偶校验位"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 323
+        name: "EMS协议选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 324
+        name: "BMS超时时间"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 328
+        name: "EPO使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 329
+        name: "BMS主从机选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 330
+        name: "BMS协议选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 331
+        name: "EMS超时时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 332
+        name: "电池过压保护"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 333
+        name: "电池欠压保护"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 334
+        name: "功率调度关联BMS使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 335
+        name: "母线过压保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 336
+        name: "母线欠压保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 337
+        name: "直流过流保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 338
+        name: "交流过流保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 339
+        name: "EMS超时待机/关机"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 340
+        name: "离网电压设置（不可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 200.0
+        unit: "v~240.0v   Default:230.0v"
+      - address: 341
+        name: "有功三相总控/分控"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 342
+        name: "A相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 343
+        name: "B相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 344
+        name: "C相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 345
+        name: "离网频率设定（不可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 346
+        name: "A相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 347
+        name: "B相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 348
+        name: "C相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 349
+        name: "离网电压设置（可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 200.0
+        unit: "v~240.0v   Default:230.0v"
+      - address: 350
+        name: "离网频率设置（可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 351
+        name: "离网功率调节使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 352
+        name: "调节系数"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 353
+        name: "自发自用设置功率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 360
+        name: "IO口状态反逻辑"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 361
+        name: "输入X1状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "输入X1状态"
+          1: "输入X2状态"
+          8: "输出Y1状态"
+          9: "输出Y2状态"
+      - address: 362
+        name: "最近同步时间--年"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 363
+        name: "最近同步时间--月"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 364
+        name: "最近同步时间--日"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 365
+        name: "最近同步时间--时"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 366
+        name: "最近同步时间--分"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 367
+        name: "最近同步时间--秒"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 650
+        name: "开机(ALL)"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 651
+        name: "关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 652
+        name: "光伏开关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 653
+        name: "并网"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 654
+        name: "离网"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 655
+        name: "禁止并离网自动切换功能（PCS模式）"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 656
+        name: "DCDC开关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 659
+        name: "保存参数"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 661
+        name: "参数初始化"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 750
+        name: "3P3L或3P4L"
+        reg_type: holding
+        data_type: int16
+        access: wo
+      - address: 752
+        name: "强制切换离网"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 753
+        name: "角度差"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 754
+        name: "频率差"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 755
+        name: "电压差"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 756
+        name: "锁相判断延时"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 757
+        name: "并网低功耗休眠使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 759
+        name: "交流侧恒电流期望值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 760
+        name: "直流侧恒功率期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 761
+        name: "直流侧恒电流期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 762
+        name: "直流侧恒定电压值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 763
+        name: "直流放电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 764
+        name: "直流充电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 765
+        name: "交流放电最大功率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 766
+        name: "交流充电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 767
+        name: "旁路判断与并网参数偏差      （旁路过欠压与过欠频的保护阀值与电网保护阀值的偏差）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 768
+        name: "电网过压I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 769
+        name: "电网过压I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 770
+        name: "电网过压Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 771
+        name: "电网过压Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 772
+        name: "电网欠压I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 773
+        name: "电网欠压I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 774
+        name: "电网欠压Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 775
+        name: "电网欠压Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 776
+        name: "电网欠压Ⅲ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 777
+        name: "电网欠压Ⅲ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 778
+        name: "电网过频I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 779
+        name: "电网过频I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 780
+        name: "电网过频Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 781
+        name: "电网过频Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 782
+        name: "电网欠频I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 783
+        name: "电网欠频I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 784
+        name: "电网欠频Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 785
+        name: "电网欠频Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 790
+        name: "孤岛检测"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 791
+        name: "电压穿越功能使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 792
+        name: "无功功率调整模式"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 793
+        name: "绝缘检测使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 794
+        name: "漏电流检测使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 795
+        name: "内部防逆流使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 873
+        name: "功能管理"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 874
+        name: "Power factor setting"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 877
+        name: "功率变化速率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 0.1
+        unit: "%~2400.0%      精度: 0.1%每秒钟"
+      - address: 878
+        name: "功率因数设置"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5226
+        name: "F_P 曲线"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5228
+        name: "PQ类型"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5239
+        name: "自老化使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 6000
+        name: "电池电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6001
+        name: "电池电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6002
+        name: "BMS温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6003
+        name: "电池SOC"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 6004
+        name: "电池SOH"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 6005
+        name: "充电电流最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6006
+        name: "放电电流最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6007
+        name: "充电功率最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 6008
+        name: "放电功率最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 6009
+        name: "充电截至电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6010
+        name: "放电截至电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6011
+        name: "单体电压最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.001
+        unit: "V"
+      - address: 6012
+        name: "单体电压最小值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.001
+        unit: "V"
+      - address: 6013
+        name: "单体温度最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6014
+        name: "单体温度最小值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6015
+        name: "BMS故障码0"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6016
+        name: "BMS故障码1"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6017
+        name: "BMS故障码2"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6018
+        name: "BMS故障码3"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6019
+        name: "蓄电池容量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 1.0
+        unit: "AH"
+      - address: 6020
+        name: "电容量电量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kwh"
+      - address: 6021
+        name: "可放电电容量电量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kwh"
+      - address: 6022
+        name: "功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 8900
+        name: "秘钥使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8901
+        name: "秘钥1"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8903
+        name: "秘钥2"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8905
+        name: "秘钥3"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8907
+        name: "心跳指令"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8908
+        name: "SN1"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8909
+        name: "SN2"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8910
+        name: "SN3"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8911
+        name: "SN4"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8912
+        name: "SN5"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8913
+        name: "SN6"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8914
+        name: "SN7"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 51001
+        name: "历史记录命令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.0
+        comment: "xAA ；"
+      - address: 51005
+        name: "故障点命令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.0
+        comment: "xBB；"
+      - address: 51006
+        name: "故障点偏移数目"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 51007
+        name: "故障点查询条目"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 51021
+        name: "历史记录数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 53068
+        name: "历史记录数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 53501
+        name: "故障点数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 55600
+        name: "故障点数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+  sinosoar-pcs-sp60hbg2:
+    description: "来源: docs/设备数据点表/sinosoar-pcs-sp30hbg2&sp60hbg2&sp100hx&sp125hx.md (SP60HBG2)"
+    registers:
+      - address: 0
+        name: "版本型号"
+        reg_type: holding
+        data_type: string
+        access: ro
+        length: 1
+      - address: 1
+        name: "机型"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 2
+        name: "子型号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 3
+        name: "PV"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 10
+        name: "U1_DSP_BL版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 12
+        name: "硬件版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 14
+        name: "U1_DSP版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 17
+        name: "COM_X1软件版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 19
+        name: "RTU协议版本号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "Vx.xx"
+      - address: 20
+        name: "COM_X1底标版本号_BL"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 32
+        name: "故障综合"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "故障综合"
+          1: "告警综合"
+          2: "启停状态"
+          3: "并网状态"
+          4: "离网状态"
+          5: "PV1状态"
+          6: "PV1状态"
+          7: "DCDC运行状态"
+      - address: 50
+        name: "逆变故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "逆变故障"
+          1: "N线异常"
+          2: "并机故障"
+          3: "同步信号故障"
+          4: "继电器故障"
+          5: "逐波限流"
+          6: "逆变软起失败"
+          7: "AC短路故障"
+          8: "AC侧过载保护"
+          9: "AC三相不平衡过载保护"
+          10: "离网输出电压低"
+          11: "离网频率高"
+          12: "离网频率低"
+          13: "正在过载告警"
+          14: "逐波限流告警"
+          15: "机器限额运行标志"
+      - address: 51
+        name: "母线不平衡"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "母线不平衡"
+          1: "母线过压"
+          2: "母线欠压"
+          3: "母线硬件异常"
+          4: "母线电容软启过程中"
+          5: "DC输入反接"
+          6: "DC输入过压"
+          7: "DC输入欠压"
+          8: "DC1过流"
+          9: "DC2过流"
+          10: "DC硬件过流"
+          11: "PV硬件过流"
+          12: "不平衡过流"
+          13: "IGBT过温"
+          14: "DC电流不平衡"
+          15: "DC接触器故障"
+      - address: 52
+        name: "电网频率低"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "电网频率低"
+          1: "电网频率高"
+          2: "电网电压低"
+          3: "电网电压高"
+          4: "电网反序"
+          6: "电压快检异常"
+          7: "孤岛故障"
+          8: "电流过流"
+          9: "N线电流过流"
+          10: "电感电流过流"
+          11: "低压穿越故障"
+          12: "高压穿越故障"
+          13: "电网正常标志"
+          14: "漏电流告警"
+      - address: 53
+        name: "防雷故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "防雷故障"
+          1: "风扇告警"
+          2: "绝缘故障"
+          3: "模式错误"
+          4: "辅助电源故障"
+          5: "系统故障汇总"
+          6: "COM通信板故障"
+          7: "BMS有故障"
+          8: "模块过温"
+          9: "IGBT温度异常"
+          10: "外部FLASH异常"
+          11: "BMS通信告警"
+          12: "内部通信故障"
+          13: "MCAN异常"
+          14: "PCAN异常"
+          15: "CPLD异常"
+      - address: 54
+        name: "光伏1电压低"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "光伏1电压低"
+          1: "光伏2电压低"
+          2: "光伏1电压高"
+          3: "光伏2电压高"
+          4: "光伏1输入反接"
+          5: "光伏2输入反接"
+          6: "PV1过流"
+          7: "PV2过流"
+          8: "光伏3电压低"
+          9: "光伏4电压低"
+          10: "光伏3电压高"
+          11: "光伏4电压高"
+          12: "光伏3输入反接"
+          13: "光伏4输入反接"
+          14: "PV3过流"
+          15: "PV4过流"
+      - address: 55
+        name: "电网(或油机)侧频率低故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "电网(或油机)侧频率低故障"
+          1: "电网(或油机)侧频率高"
+          2: "电网(或油机)侧电压低"
+          3: "电网(或油机)侧电压高"
+          4: "电网(或油机)电压正常"
+          5: "电网(或油机)锁相OK"
+          6: "电网(或油机)反序"
+          7: "电网电压Md值高"
+          8: "Rec"
+          9: "Rec"
+          10: "rec"
+          11: "rec"
+          12: "rec"
+          13: "电网(或油机)频率正常"
+          14: "电网(或油机)电压正常"
+          15: "电网(或油机)快检故障"
+      - address: 100
+        name: "逆变电压频率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "HZ"
+      - address: 101
+        name: "模块端口AB线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 102
+        name: "模块端口BC线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 103
+        name: "模块端口CA线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 104
+        name: "A相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 105
+        name: "B相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 106
+        name: "C相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 107
+        name: "模块端口A相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 108
+        name: "模块端口B相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 109
+        name: "模块端口C相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 110
+        name: "A相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 111
+        name: "B相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 112
+        name: "C相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 113
+        name: "A相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 114
+        name: "B相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 115
+        name: "C相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 116
+        name: "A相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 117
+        name: "B相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 118
+        name: "C相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 119
+        name: "A相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 120
+        name: "B相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 121
+        name: "C相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 122
+        name: "三相总有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 123
+        name: "三相总无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 124
+        name: "三相总视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 125
+        name: "三相总PF值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 126
+        name: "交流放电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 128
+        name: "交流充电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 130
+        name: "母线电压P"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 131
+        name: "母线电压N"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 132
+        name: "模块最高温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 135
+        name: "有功功率调度"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 136
+        name: "无功功率期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 141
+        name: "直流功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 142
+        name: "直流电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 143
+        name: "直流电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 144
+        name: "直流充电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh   数据仅供参考"
+      - address: 146
+        name: "直流放电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh 数据仅供参考"
+      - address: 150
+        name: "光伏1电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 151
+        name: "光伏1电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 152
+        name: "光伏1功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 153
+        name: "光伏2电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 154
+        name: "光伏2电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 155
+        name: "光伏2功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 156
+        name: "光伏3电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 157
+        name: "光伏4电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 158
+        name: "光伏3功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 159
+        name: "光伏4电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 160
+        name: "光伏3电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 161
+        name: "光伏4功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 162
+        name: "光伏1发电电量"
+        reg_type: holding
+        data_type: int32
+        access: ro
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 164
+        name: "光伏2发电电量"
+        reg_type: holding
+        data_type: int32
+        access: ro
+        scale: 0.1
+        unit: "kWh 数据仅供参考"
+      - address: 166
+        name: "光伏3发电电量"
+        reg_type: holding
+        data_type: int32
+        access: ro
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 168
+        name: "光伏4发电电量"
+        reg_type: holding
+        data_type: int32
+        access: ro
+        scale: 0.1
+        unit: "kWh 数据仅供参考"
+      - address: 170
+        name: "电网频率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "Hz"
+      - address: 174
+        name: "电网A相电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 175
+        name: "电网B相电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 176
+        name: "电网C相电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 177
+        name: "电网A相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 178
+        name: "电网B相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 179
+        name: "电网C相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 180
+        name: "电网A相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 181
+        name: "电网B相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 182
+        name: "电网C相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 186
+        name: "电网A相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 187
+        name: "电网B相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 188
+        name: "电网C相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 192
+        name: "电网总有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 194
+        name: "电网总视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 196
+        name: "电网充电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考   下电不保存"
+      - address: 198
+        name: "电网放电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh 数据仅供参考   下电不保存"
+      - address: 228
+        name: "A相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 229
+        name: "B相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 230
+        name: "C相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 317
+        name: "DO输出默认干接点"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "Y1为绿灯      Y2为红灯      默认：0"
+      - address: 319
+        name: "EPO急停使能输入取反"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 320
+        name: "COM波特率，精度为位/秒"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 321
+        name: "SCI停止位"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 322
+        name: "SCI奇偶校验位"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 323
+        name: "EMS协议选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 324
+        name: "BMS超时时间"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 328
+        name: "EPO使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 329
+        name: "BMS主从机选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 330
+        name: "BMS协议选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 331
+        name: "EMS超时时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 332
+        name: "电池过压保护"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 333
+        name: "电池欠压保护"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 334
+        name: "功率调度关联BMS使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 335
+        name: "母线过压保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 336
+        name: "母线欠压保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 337
+        name: "直流过流保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 338
+        name: "交流过流保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 339
+        name: "EMS超时待机/关机"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 340
+        name: "离网电压设置（不可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 200.0
+        unit: "v~240.0v   Default:230.0v"
+      - address: 341
+        name: "有功三相总控/分控"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 342
+        name: "A相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 343
+        name: "B相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 344
+        name: "C相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 345
+        name: "离网频率设定（不可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 346
+        name: "A相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 347
+        name: "B相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 348
+        name: "C相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 349
+        name: "离网电压设置（可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 200.0
+        unit: "v~240.0v   Default:230.0v"
+      - address: 350
+        name: "离网频率设置（可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 351
+        name: "离网功率调节使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 352
+        name: "调节系数"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 353
+        name: "自发自用设置功率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 360
+        name: "IO口状态反逻辑"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 361
+        name: "输入X1状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "输入X1状态"
+          1: "输入X2状态"
+          8: "输出Y1状态"
+          9: "输出Y2状态"
+      - address: 362
+        name: "最近同步时间--年"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 363
+        name: "最近同步时间--月"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 364
+        name: "最近同步时间--日"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 365
+        name: "最近同步时间--时"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 366
+        name: "最近同步时间--分"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 367
+        name: "最近同步时间--秒"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 650
+        name: "开机(ALL)"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 651
+        name: "关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 652
+        name: "光伏开关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 653
+        name: "并网"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 654
+        name: "离网"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 655
+        name: "禁止并离网自动切换功能（PCS模式）"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 656
+        name: "DCDC开关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 659
+        name: "保存参数"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 661
+        name: "参数初始化"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 752
+        name: "强制切换离网"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 753
+        name: "角度差"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 754
+        name: "频率差"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 755
+        name: "电压差"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 756
+        name: "锁相判断延时"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 757
+        name: "并网低功耗休眠使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 759
+        name: "交流侧恒电流期望值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 760
+        name: "直流侧恒功率期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 761
+        name: "直流侧恒电流期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 762
+        name: "直流侧恒定电压值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 763
+        name: "直流放电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 764
+        name: "直流充电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 765
+        name: "交流放电最大功率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 766
+        name: "交流充电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 767
+        name: "旁路判断与并网参数偏差      （旁路过欠压与过欠频的保护阀值与电网保护阀值的偏差）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 768
+        name: "电网过压I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 769
+        name: "电网过压I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 770
+        name: "电网过压Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 771
+        name: "电网过压Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 772
+        name: "电网欠压I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 773
+        name: "电网欠压I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 774
+        name: "电网欠压Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 775
+        name: "电网欠压Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 776
+        name: "电网欠压Ⅲ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 777
+        name: "电网欠压Ⅲ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 778
+        name: "电网过频I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 779
+        name: "电网过频I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 780
+        name: "电网过频Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 781
+        name: "电网过频Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 782
+        name: "电网欠频I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 783
+        name: "电网欠频I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 784
+        name: "电网欠频Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 785
+        name: "电网欠频Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 790
+        name: "孤岛检测"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 791
+        name: "电压穿越功能使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 792
+        name: "无功功率调整模式"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 793
+        name: "绝缘检测使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 794
+        name: "漏电流检测使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 795
+        name: "内部防逆流使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 873
+        name: "功能管理"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 874
+        name: "Power factor setting"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 877
+        name: "功率变化速率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 0.1
+        unit: "%~2400.0%      精度: 0.1%每秒钟"
+      - address: 878
+        name: "功率因数设置"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5226
+        name: "F_P 曲线"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5228
+        name: "PQ类型"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5239
+        name: "自老化使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 6000
+        name: "电池电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6001
+        name: "电池电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6002
+        name: "BMS温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6003
+        name: "电池SOC"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 6004
+        name: "电池SOH"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 6005
+        name: "充电电流最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6006
+        name: "放电电流最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6007
+        name: "充电功率最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 6008
+        name: "放电功率最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 6009
+        name: "充电截至电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6010
+        name: "放电截至电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6011
+        name: "单体电压最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.001
+        unit: "V"
+      - address: 6012
+        name: "单体电压最小值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.001
+        unit: "V"
+      - address: 6013
+        name: "单体温度最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6014
+        name: "单体温度最小值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6015
+        name: "BMS故障码0"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6016
+        name: "BMS故障码1"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6017
+        name: "BMS故障码2"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6018
+        name: "BMS故障码3"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6019
+        name: "蓄电池容量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 1.0
+        unit: "AH"
+      - address: 6020
+        name: "电容量电量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kwh"
+      - address: 6021
+        name: "可放电电容量电量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kwh"
+      - address: 6022
+        name: "功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 8900
+        name: "秘钥使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8901
+        name: "秘钥1"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8903
+        name: "秘钥2"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8905
+        name: "秘钥3"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8907
+        name: "心跳指令"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8908
+        name: "SN1"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8909
+        name: "SN2"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8910
+        name: "SN3"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8911
+        name: "SN4"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8912
+        name: "SN5"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8913
+        name: "SN6"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8914
+        name: "SN7"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 51001
+        name: "历史记录命令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.0
+        comment: "xAA ；"
+      - address: 51005
+        name: "故障点命令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.0
+        comment: "xBB；"
+      - address: 51006
+        name: "故障点偏移数目"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 51007
+        name: "故障点查询条目"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 51021
+        name: "历史记录数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 53068
+        name: "历史记录数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 53501
+        name: "故障点数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 55600
+        name: "故障点数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+  sinosoar-pcs-sp100hx:
+    description: "来源: docs/设备数据点表/sinosoar-pcs-sp30hbg2&sp60hbg2&sp100hx&sp125hx.md (SP100HX)"
+    registers:
+      - address: 0
+        name: "版本型号"
+        reg_type: holding
+        data_type: string
+        access: ro
+        length: 1
+      - address: 1
+        name: "机型"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 2
+        name: "子型号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 10
+        name: "U1_DSP_BL版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 12
+        name: "硬件版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 14
+        name: "U1_DSP版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 17
+        name: "COM_X1软件版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 19
+        name: "RTU协议版本号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "Vx.xx"
+      - address: 20
+        name: "COM_X1底标版本号_BL"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 32
+        name: "故障综合"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "故障综合"
+          1: "告警综合"
+          2: "启停状态"
+          3: "并网状态"
+          4: "离网状态"
+          5: "PV1状态"
+          6: "PV1状态"
+      - address: 50
+        name: "逆变故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "逆变故障"
+          1: "N线异常"
+          2: "并机故障"
+          3: "同步信号故障"
+          4: "继电器故障"
+          5: "逐波限流"
+          6: "逆变软起失败"
+          7: "AC短路故障"
+          8: "AC侧过载保护"
+          9: "AC三相不平衡过载保护"
+          10: "离网输出电压低"
+          11: "离网频率高"
+          12: "离网频率低"
+          13: "正在过载告警"
+          14: "逐波限流告警"
+          15: "机器限额运行标志"
+      - address: 51
+        name: "母线不平衡"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "母线不平衡"
+          1: "母线过压"
+          2: "母线欠压"
+          3: "母线硬件异常"
+          4: "母线电容软启过程中"
+          5: "DC输入反接"
+          6: "DC输入过压"
+          7: "DC输入欠压"
+          12: "不平衡过流"
+          13: "IGBT过温"
+          15: "DC接触器故障"
+      - address: 52
+        name: "电网频率低"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "电网频率低"
+          1: "电网频率高"
+          2: "电网电压低"
+          3: "电网电压高"
+          4: "电网反序"
+          6: "电压快检异常"
+          7: "孤岛故障"
+          8: "电流过流"
+          9: "N线电流过流"
+          10: "电感电流过流"
+          11: "低压穿越故障"
+          12: "高压穿越故障"
+          13: "电网正常标志"
+          14: "漏电流告警"
+      - address: 53
+        name: "防雷故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "防雷故障"
+          1: "风扇告警"
+          2: "绝缘故障"
+          3: "模式错误"
+          4: "辅助电源故障"
+          5: "系统故障汇总"
+          6: "COM通信板故障"
+          7: "BMS有故障"
+          8: "模块过温"
+          9: "IGBT温度异常"
+          10: "外部FLASH异常"
+          11: "BMS通信告警"
+          12: "内部通信故障"
+          13: "MCAN异常"
+          14: "PCAN异常"
+          15: "CPLD异常"
+      - address: 54
+        name: "光伏1电压低"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "光伏1电压低"
+          1: "光伏2电压低"
+          2: "光伏1电压高"
+          3: "光伏2电压高"
+          4: "光伏1输入反接"
+          5: "光伏2输入反接"
+          6: "PV1过流"
+          7: "PV2过流"
+      - address: 100
+        name: "逆变电压频率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "HZ"
+      - address: 101
+        name: "模块端口AB线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 102
+        name: "模块端口BC线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 103
+        name: "模块端口CA线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 104
+        name: "A相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 105
+        name: "B相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 106
+        name: "C相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 107
+        name: "模块端口A相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 108
+        name: "模块端口B相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 109
+        name: "模块端口C相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 110
+        name: "A相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 111
+        name: "B相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 112
+        name: "C相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 113
+        name: "A相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 114
+        name: "B相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 115
+        name: "C相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 116
+        name: "A相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 117
+        name: "B相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 118
+        name: "C相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 119
+        name: "A相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 120
+        name: "B相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 121
+        name: "C相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 122
+        name: "三相总有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 123
+        name: "三相总无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 124
+        name: "三相总视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 125
+        name: "三相总PF值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 126
+        name: "交流放电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 128
+        name: "交流充电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 130
+        name: "母线电压P"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 131
+        name: "母线电压N"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 132
+        name: "模块最高温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 135
+        name: "有功功率调度"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 136
+        name: "无功功率期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 141
+        name: "直流功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 142
+        name: "直流电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 143
+        name: "直流电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 144
+        name: "直流充电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh   数据仅供参考"
+      - address: 146
+        name: "直流放电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh 数据仅供参考"
+      - address: 228
+        name: "A相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 229
+        name: "B相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 230
+        name: "C相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 317
+        name: "DO输出默认干接点"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "Y1为绿灯      Y2为红灯      默认：0"
+      - address: 318
+        name: "模块地址软件设置"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 319
+        name: "EPO急停使能输入取反"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 320
+        name: "COM波特率，精度为位/秒"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 321
+        name: "SCI停止位"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 322
+        name: "SCI奇偶校验位"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 323
+        name: "EMS协议选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 324
+        name: "BMS超时时间"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 328
+        name: "EPO使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 329
+        name: "BMS主从机选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 330
+        name: "BMS协议选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 331
+        name: "EMS超时时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 332
+        name: "电池过压保护"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 333
+        name: "电池欠压保护"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 334
+        name: "功率调度关联BMS使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 335
+        name: "母线过压保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 336
+        name: "母线欠压保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 337
+        name: "直流过流保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 338
+        name: "交流过流保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 339
+        name: "EMS超时待机/关机"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 340
+        name: "离网电压设置（不可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 200.0
+        unit: "v~240.0v   Default:230.0v"
+      - address: 341
+        name: "有功三相总控/分控"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 342
+        name: "A相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 343
+        name: "B相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 344
+        name: "C相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 345
+        name: "离网频率设定（不可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 346
+        name: "A相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 347
+        name: "B相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 348
+        name: "C相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 349
+        name: "离网电压设置（可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 200.0
+        unit: "v~240.0v   Default:230.0v"
+      - address: 350
+        name: "离网频率设置（可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 351
+        name: "离网功率调节使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 352
+        name: "调节系数"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 360
+        name: "IO口状态反逻辑"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 361
+        name: "输入X1状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "输入X1状态"
+          1: "输入X2状态"
+          8: "输出Y1状态"
+          9: "输出Y2状态"
+      - address: 362
+        name: "最近同步时间--年"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 363
+        name: "最近同步时间--月"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 364
+        name: "最近同步时间--日"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 365
+        name: "最近同步时间--时"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 366
+        name: "最近同步时间--分"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 367
+        name: "最近同步时间--秒"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 650
+        name: "开机(ALL)"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 651
+        name: "关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 653
+        name: "并网"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 654
+        name: "离网"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 659
+        name: "保存参数"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 661
+        name: "参数初始化"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 662
+        name: "开关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 663
+        name: "开关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 757
+        name: "并网低功耗休眠使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 758
+        name: "并网功率调度方式"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 759
+        name: "交流侧恒电流期望值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 760
+        name: "直流侧恒功率期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 761
+        name: "直流侧恒电流期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 762
+        name: "直流侧恒定电压值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 764
+        name: "直流充电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 765
+        name: "交流放电最大功率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 766
+        name: "交流充电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 768
+        name: "电网过压I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 769
+        name: "电网过压I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 770
+        name: "电网过压Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 771
+        name: "电网过压Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 772
+        name: "电网欠压I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 773
+        name: "电网欠压I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 774
+        name: "电网欠压Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 775
+        name: "电网欠压Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 776
+        name: "电网欠压Ⅲ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 777
+        name: "电网欠压Ⅲ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 778
+        name: "电网过频I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 779
+        name: "电网过频I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 780
+        name: "电网过频Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 781
+        name: "电网过频Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 782
+        name: "电网欠频I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 783
+        name: "电网欠频I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 784
+        name: "电网欠频Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 785
+        name: "电网欠频Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 790
+        name: "孤岛检测"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 791
+        name: "电压穿越功能使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 792
+        name: "无功功率调整模式"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 793
+        name: "绝缘检测使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 874
+        name: "Power factor setting"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 877
+        name: "功率变化速率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 0.1
+        unit: "%~2400.0%      精度: 0.1%每秒钟"
+      - address: 878
+        name: "功率因数设置"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5226
+        name: "F_P 曲线"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5228
+        name: "PQ类型"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5239
+        name: "自老化使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 6000
+        name: "电池电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6001
+        name: "电池电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6002
+        name: "BMS温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6003
+        name: "电池SOC"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 6004
+        name: "电池SOH"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 6005
+        name: "充电电流最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6006
+        name: "放电电流最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6007
+        name: "充电功率最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 6008
+        name: "放电功率最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 6009
+        name: "充电截至电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6010
+        name: "放电截至电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6011
+        name: "单体电压最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.001
+        unit: "V"
+      - address: 6012
+        name: "单体电压最小值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.001
+        unit: "V"
+      - address: 6013
+        name: "单体温度最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6014
+        name: "单体温度最小值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6015
+        name: "BMS故障码0"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6016
+        name: "BMS故障码1"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6017
+        name: "BMS故障码2"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6018
+        name: "BMS故障码3"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6019
+        name: "蓄电池容量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 1.0
+        unit: "AH"
+      - address: 6020
+        name: "电容量电量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kwh"
+      - address: 6021
+        name: "可放电电容量电量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kwh"
+      - address: 6022
+        name: "功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 8900
+        name: "秘钥使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8901
+        name: "秘钥1"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8903
+        name: "秘钥2"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8905
+        name: "秘钥3"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8907
+        name: "心跳指令"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8908
+        name: "SN1"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8909
+        name: "SN2"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8910
+        name: "SN3"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8911
+        name: "SN4"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8912
+        name: "SN5"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8913
+        name: "SN6"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8914
+        name: "SN7"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 51001
+        name: "历史记录命令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.0
+        comment: "xAA ；"
+      - address: 51005
+        name: "故障点命令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.0
+        comment: "xBB；"
+      - address: 51006
+        name: "故障点偏移数目"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 51007
+        name: "故障点查询条目"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 51021
+        name: "历史记录数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 53068
+        name: "历史记录数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 53501
+        name: "故障点数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 55600
+        name: "故障点数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+  sinosoar-pcs-sp125hx:
+    description: "来源: docs/设备数据点表/sinosoar-pcs-sp30hbg2&sp60hbg2&sp100hx&sp125hx.md (SP125HX)"
+    registers:
+      - address: 0
+        name: "版本型号"
+        reg_type: holding
+        data_type: string
+        access: ro
+        length: 1
+      - address: 1
+        name: "机型"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 2
+        name: "子型号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 10
+        name: "U1_DSP_BL版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 12
+        name: "硬件版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 14
+        name: "U1_DSP版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 17
+        name: "COM_X1软件版本号"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 19
+        name: "RTU协议版本号"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        comment: "Vx.xx"
+      - address: 20
+        name: "COM_X1底标版本号_BL"
+        reg_type: holding
+        data_type: uint32
+        access: ro
+        comment: "VxxNxxBxxDxx"
+      - address: 32
+        name: "故障综合"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "故障综合"
+          1: "告警综合"
+          2: "启停状态"
+          3: "并网状态"
+          4: "离网状态"
+          5: "PV1状态"
+          6: "PV1状态"
+      - address: 50
+        name: "逆变故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "逆变故障"
+          1: "N线异常"
+          2: "并机故障"
+          3: "同步信号故障"
+          4: "继电器故障"
+          5: "逐波限流"
+          6: "逆变软起失败"
+          7: "AC短路故障"
+          8: "AC侧过载保护"
+          9: "AC三相不平衡过载保护"
+          10: "离网输出电压低"
+          11: "离网频率高"
+          12: "离网频率低"
+          13: "正在过载告警"
+          14: "逐波限流告警"
+          15: "机器限额运行标志"
+      - address: 51
+        name: "母线不平衡"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "母线不平衡"
+          1: "母线过压"
+          2: "母线欠压"
+          3: "母线硬件异常"
+          4: "母线电容软启过程中"
+          5: "DC输入反接"
+          6: "DC输入过压"
+          7: "DC输入欠压"
+          12: "不平衡过流"
+          13: "IGBT过温"
+          15: "DC接触器故障"
+      - address: 52
+        name: "电网频率低"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "电网频率低"
+          1: "电网频率高"
+          2: "电网电压低"
+          3: "电网电压高"
+          4: "电网反序"
+          6: "电压快检异常"
+          7: "孤岛故障"
+          8: "电流过流"
+          9: "N线电流过流"
+          10: "电感电流过流"
+          11: "低压穿越故障"
+          12: "高压穿越故障"
+          13: "电网正常标志"
+          14: "漏电流告警"
+      - address: 53
+        name: "防雷故障"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "防雷故障"
+          1: "风扇告警"
+          2: "绝缘故障"
+          3: "模式错误"
+          4: "辅助电源故障"
+          5: "系统故障汇总"
+          6: "COM通信板故障"
+          7: "BMS有故障"
+          8: "模块过温"
+          9: "IGBT温度异常"
+          10: "外部FLASH异常"
+          11: "BMS通信告警"
+          12: "内部通信故障"
+          13: "MCAN异常"
+          14: "PCAN异常"
+          15: "CPLD异常"
+      - address: 54
+        name: "光伏1电压低"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "光伏1电压低"
+          1: "光伏2电压低"
+          2: "光伏1电压高"
+          3: "光伏2电压高"
+          4: "光伏1输入反接"
+          5: "光伏2输入反接"
+          6: "PV1过流"
+          7: "PV2过流"
+      - address: 100
+        name: "逆变电压频率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "HZ"
+      - address: 101
+        name: "模块端口AB线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 102
+        name: "模块端口BC线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 103
+        name: "模块端口CA线电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 104
+        name: "A相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 105
+        name: "B相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 106
+        name: "C相输出电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 107
+        name: "模块端口A相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 108
+        name: "模块端口B相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 109
+        name: "模块端口C相电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 110
+        name: "A相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 111
+        name: "B相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 112
+        name: "C相有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 113
+        name: "A相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 114
+        name: "B相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 115
+        name: "C相无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 116
+        name: "A相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 117
+        name: "B相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 118
+        name: "C相视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 119
+        name: "A相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 120
+        name: "B相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 121
+        name: "C相功率因数"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 122
+        name: "三相总有功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 123
+        name: "三相总无功功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVAR"
+      - address: 124
+        name: "三相总视在功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kVA"
+      - address: 125
+        name: "三相总PF值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "PF"
+      - address: 126
+        name: "交流放电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 128
+        name: "交流充电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh  数据仅供参考"
+      - address: 130
+        name: "母线电压P"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 131
+        name: "母线电压N"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 132
+        name: "模块最高温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 135
+        name: "有功功率调度"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 136
+        name: "无功功率期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 141
+        name: "直流功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.01
+        unit: "kW"
+      - address: 142
+        name: "直流电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 143
+        name: "直流电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 144
+        name: "直流充电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh   数据仅供参考"
+      - address: 146
+        name: "直流放电电量"
+        reg_type: holding
+        data_type: int32
+        access: rw
+        scale: 0.1
+        unit: "kWh 数据仅供参考"
+      - address: 228
+        name: "A相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 229
+        name: "B相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 230
+        name: "C相电感电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 317
+        name: "DO输出默认干接点"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        unit: "Y1为绿灯      Y2为红灯      默认：0"
+      - address: 319
+        name: "EPO急停使能输入取反"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 320
+        name: "COM波特率，精度为位/秒"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 321
+        name: "SCI停止位"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 322
+        name: "SCI奇偶校验位"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 323
+        name: "EMS协议选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 324
+        name: "BMS超时时间"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 328
+        name: "EPO使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 329
+        name: "BMS主从机选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 330
+        name: "BMS协议选择"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 331
+        name: "EMS超时时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 332
+        name: "电池过压保护"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 333
+        name: "电池欠压保护"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 334
+        name: "功率调度关联BMS使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 335
+        name: "母线过压保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 336
+        name: "母线欠压保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 337
+        name: "直流过流保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 338
+        name: "交流过流保护点"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 339
+        name: "EMS超时待机/关机"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 340
+        name: "离网电压设置（不可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 200.0
+        unit: "v~240.0v   Default:230.0v"
+      - address: 341
+        name: "有功三相总控/分控"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 342
+        name: "A相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 343
+        name: "B相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 344
+        name: "C相有功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kw~10.0kw"
+      - address: 345
+        name: "离网频率设定（不可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 346
+        name: "A相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 347
+        name: "B相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 348
+        name: "C相无功"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: -10.0
+        unit: "kVar~10.0kVar"
+      - address: 349
+        name: "离网电压设置（可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 200.0
+        unit: "v~240.0v   Default:230.0v"
+      - address: 350
+        name: "离网频率设置（可存）"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 351
+        name: "离网功率调节使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 352
+        name: "调节系数"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 360
+        name: "IO口状态反逻辑"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 361
+        name: "输入X1状态"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+        bits:
+          0: "输入X1状态"
+          1: "输入X2状态"
+          8: "输出Y1状态"
+          9: "输出Y2状态"
+      - address: 362
+        name: "最近同步时间--年"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 363
+        name: "最近同步时间--月"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 364
+        name: "最近同步时间--日"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 365
+        name: "最近同步时间--时"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 366
+        name: "最近同步时间--分"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 367
+        name: "最近同步时间--秒"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 650
+        name: "开机(ALL)"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 651
+        name: "关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 653
+        name: "并网"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 654
+        name: "离网"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 659
+        name: "保存参数"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 661
+        name: "参数初始化"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 662
+        name: "开关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 663
+        name: "开关机"
+        reg_type: holding
+        data_type: enum16
+        access: wo
+      - address: 757
+        name: "并网低功耗休眠使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 758
+        name: "并网功率调度方式"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 759
+        name: "交流侧恒电流期望值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 760
+        name: "直流侧恒功率期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 761
+        name: "直流侧恒电流期望"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 762
+        name: "直流侧恒定电压值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 764
+        name: "直流充电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 765
+        name: "交流放电最大功率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 766
+        name: "交流充电最大电流"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 768
+        name: "电网过压I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 769
+        name: "电网过压I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 770
+        name: "电网过压Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 771
+        name: "电网过压Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 772
+        name: "电网欠压I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 773
+        name: "电网欠压I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 774
+        name: "电网欠压Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 775
+        name: "电网欠压Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 776
+        name: "电网欠压Ⅲ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 777
+        name: "电网欠压Ⅲ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 778
+        name: "电网过频I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 779
+        name: "电网过频I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 780
+        name: "电网过频Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 781
+        name: "电网过频Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 782
+        name: "电网欠频I段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 783
+        name: "电网欠频I段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 784
+        name: "电网欠频Ⅱ段保护幅值"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 785
+        name: "电网欠频Ⅱ段保护时间"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 790
+        name: "孤岛检测"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 791
+        name: "电压穿越功能使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 792
+        name: "无功功率调整模式"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 793
+        name: "绝缘检测使能"
+        reg_type: holding
+        data_type: enum16
+        access: rw
+      - address: 874
+        name: "Power factor setting"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 877
+        name: "功率变化速率"
+        reg_type: holding
+        data_type: int16
+        access: rw
+        scale: 0.1
+        unit: "%~2400.0%      精度: 0.1%每秒钟"
+      - address: 878
+        name: "功率因数设置"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5226
+        name: "F_P 曲线"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5228
+        name: "PQ类型"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 5239
+        name: "自老化使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 6000
+        name: "电池电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6001
+        name: "电池电流"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6002
+        name: "BMS温度"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6003
+        name: "电池SOC"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 6004
+        name: "电池SOH"
+        reg_type: holding
+        data_type: int16
+        access: ro
+      - address: 6005
+        name: "充电电流最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6006
+        name: "放电电流最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "A"
+      - address: 6007
+        name: "充电功率最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 6008
+        name: "放电功率最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 6009
+        name: "充电截至电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6010
+        name: "放电截至电压"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "V"
+      - address: 6011
+        name: "单体电压最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.001
+        unit: "V"
+      - address: 6012
+        name: "单体电压最小值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.001
+        unit: "V"
+      - address: 6013
+        name: "单体温度最大值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6014
+        name: "单体温度最小值"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "°"
+      - address: 6015
+        name: "BMS故障码0"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6016
+        name: "BMS故障码1"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6017
+        name: "BMS故障码2"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6018
+        name: "BMS故障码3"
+        reg_type: holding
+        data_type: uint16
+        access: ro
+      - address: 6019
+        name: "蓄电池容量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 1.0
+        unit: "AH"
+      - address: 6020
+        name: "电容量电量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kwh"
+      - address: 6021
+        name: "可放电电容量电量"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kwh"
+      - address: 6022
+        name: "功率"
+        reg_type: holding
+        data_type: int16
+        access: ro
+        scale: 0.1
+        unit: "kw"
+      - address: 8900
+        name: "秘钥使能"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8901
+        name: "秘钥1"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8903
+        name: "秘钥2"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8905
+        name: "秘钥3"
+        reg_type: holding
+        data_type: int32
+        access: rw
+      - address: 8907
+        name: "心跳指令"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8908
+        name: "SN1"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8909
+        name: "SN2"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8910
+        name: "SN3"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8911
+        name: "SN4"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8912
+        name: "SN5"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8913
+        name: "SN6"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 8914
+        name: "SN7"
+        reg_type: holding
+        data_type: int16
+        access: rw
+      - address: 51001
+        name: "历史记录命令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.0
+        comment: "xAA ；"
+      - address: 51005
+        name: "故障点命令"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+        scale: 0.0
+        comment: "xBB；"
+      - address: 51006
+        name: "故障点偏移数目"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 51007
+        name: "故障点查询条目"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 51021
+        name: "历史记录数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 53068
+        name: "历史记录数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 53501
+        name: "故障点数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw
+      - address: 55600
+        name: "故障点数据"
+        reg_type: holding
+        data_type: uint16
+        access: rw

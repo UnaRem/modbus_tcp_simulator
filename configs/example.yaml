@@ -1,0 +1,62 @@
+config_version: v1
+profiles_dir: configs/profiles
+runtime:
+  max_connections: 100
+  max_qps: 200
+  request_timeout_ms: 200
+
+metrics:
+  enabled: true
+  output: log
+  interval_s: 10
+  endpoint: /metrics
+  address: 0.0.0.0
+  port: 9090
+
+listeners:
+  - port: 5020
+    type: tcp
+    address_base: 0
+    devices: [PCS_1, PCS_2, BMS_1, BMS_2]
+
+devices:
+  - name: PCS_1
+    slave_id: 1
+    profile: sinosoar-pcs-sp125hx
+  - name: PCS_2
+    slave_id: 2
+    profile: sinosoar-pcs-sp60hbg2
+  - name: BMS_1
+    slave_id: 3
+    profile: pw-100261a
+  - name: BMS_2
+    slave_id: 4
+    profile: cimc-ess-832-314-dc-c
+
+boundary_values:
+  enabled: true
+  bit: 0
+  types:
+    # int16: min
+    # uint16: min
+    # int32: min
+    # uint32: min
+    # float32: min
+    # string: min
+    int16: max
+    uint16: max
+    int32: max
+    uint32: max
+    float32: max
+    string: max
+
+simulation:
+  - name: Battery_Charging_Logic
+    interval: 1.0
+    timeout_ms: 100
+    enabled: false
+    script: |
+      # 示例脚本：读取并写入
+      # soc = get_value("BMS_1", 1303)
+      # if soc < 100.0:
+      #     set_value("BMS_1", 1303, soc + 0.1)
