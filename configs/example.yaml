@@ -35,7 +35,7 @@ devices:
 
 boundary_values:
   enabled: true
-  bit: 0
+  bit: 1
   types:
     # int16: min
     # uint16: min
