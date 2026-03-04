@@ -7,6 +7,7 @@ import yaml
 
 from .errors import ConfigError
 from .device import DeviceContext, DeviceRegistry, RegisterDef, RegisterStore
+from ..registers.builtin_profiles import load_builtin_profiles
 
 
 _DATA_TYPE_ALIASES = {
@@ -493,7 +494,8 @@ class ConfigValidator:
             if not isinstance(regs, list):
                 errors.append(f"profile {name} registers must be list")
                 continue
-            occupied_by_type: dict[str, set[int]] = {}
+            allow_overlap = bool(body.get("allow_overlap"))
+            occupied_by_type: dict[str, set[int]] = {} if not allow_overlap else {}
             for idx, item in enumerate(regs):
                 if not isinstance(item, dict):
                     errors.append(f"profile {name} register[{idx}] must be map")
@@ -549,13 +551,14 @@ class ConfigValidator:
                             f"profile {name} register[{idx}].length must be 1 for {reg_type}"
                         )
 
-                for offset in range(length):
-                    addr_i = addr + offset
-                    if addr_i in occupied:
-                        errors.append(
-                            f"profile {name} register[{idx}] overlaps address {addr_i}"
-                        )
-                    occupied.add(addr_i)
+                if not allow_overlap:
+                    for offset in range(length):
+                        addr_i = addr + offset
+                        if addr_i in occupied:
+                            errors.append(
+                                f"profile {name} register[{idx}] overlaps address {addr_i}"
+                            )
+                        occupied.add(addr_i)
 
                 min_val = item.get("min")
                 max_val = item.get("max")
@@ -588,6 +591,73 @@ def load_profiles(profile_files: list[Path]) -> dict:
         for name, body in chunk.items():
             profiles[name] = body
     return profiles
+
+
+def _register_addresses(item: dict) -> tuple[str, list[int]]:
+    reg_type = str(item.get("reg_type", "holding"))
+    data_type = _normalize_data_type(item.get("data_type"))
+    length = item.get("length")
+    if data_type in ("int32", "uint32", "float32"):
+        length = 2
+    elif data_type == "string":
+        try:
+            length = int(length or 1)
+        except (TypeError, ValueError):
+            length = 1
+    else:
+        try:
+            length = int(length or 1)
+        except (TypeError, ValueError):
+            length = 1
+    if length <= 0:
+        length = 1
+    address = int(item.get("address"))
+    return reg_type, list(range(address, address + length))
+
+
+def _merge_profile_registers(primary: list | None, fallback: list | None) -> list:
+    primary = list(primary or [])
+    fallback = list(fallback or [])
+    occupied: dict[str, set[int]] = {}
+    for item in primary:
+        reg_type, addrs = _register_addresses(item)
+        occupied.setdefault(reg_type, set()).update(addrs)
+
+    merged = list(primary)
+    fallback_sorted = sorted(
+        fallback,
+        key=lambda item: int(item.get("address", 0)),
+    )
+    for item in fallback_sorted:
+        reg_type, addrs = _register_addresses(item)
+        reg_occupied = occupied.setdefault(reg_type, set())
+        if any(addr in reg_occupied for addr in addrs):
+            continue
+        merged.append(item)
+        reg_occupied.update(addrs)
+    return merged
+
+
+def _merge_profile_body(primary: dict, fallback: dict) -> dict:
+    if primary.get("ignore_fallback"):
+        return dict(primary)
+    merged = dict(fallback or {})
+    merged.update(primary or {})
+    merged["registers"] = _merge_profile_registers(
+        primary.get("registers") if isinstance(primary, dict) else [],
+        fallback.get("registers") if isinstance(fallback, dict) else [],
+    )
+    return merged
+
+
+def _merge_profiles(primary: dict, fallback: dict) -> dict:
+    merged = dict(fallback or {})
+    for name, body in (primary or {}).items():
+        if name in merged:
+            merged[name] = _merge_profile_body(body, merged[name])
+        else:
+            merged[name] = body
+    return merged
 
 
 def _resolve_path(base_dir: Path, raw: str) -> Path:
@@ -629,6 +699,7 @@ def build_device_registry(cfg: dict, base_dir: Path) -> DeviceRegistry:
     profile_files = resolve_profile_files(cfg, base_dir)
     profiles = load_profiles(profile_files)
     profiles.update(cfg.get("profiles") or {})
+    profiles = _merge_profiles(load_builtin_profiles(), profiles)
     errors = ConfigValidator(profiles).validate(cfg)
     if errors:
         detail = "\n- " + "\n- ".join(errors)
@@ -650,6 +721,9 @@ def build_device_registry(cfg: dict, base_dir: Path) -> DeviceRegistry:
         profile = profiles.get(profile_name)
         if not profile:
             raise ConfigError(f"profile not found: {profile_name}")
+        read_fc = profile.get("read_fc")
+        write_fc = profile.get("write_fc")
+        mirror_input = bool(profile.get("mirror_input_to_holding"))
         regs = profile.get("registers") or []
         defs_by_type: dict[str, list[RegisterDef]] = {}
         doc_comments: dict[int, str] = {}
@@ -710,10 +784,29 @@ def build_device_registry(cfg: dict, base_dir: Path) -> DeviceRegistry:
             defs_by_type.setdefault(reg_type, []).append(reg)
 
         stores = {rtype: RegisterStore(defs) for rtype, defs in defs_by_type.items()}
+        if mirror_input and "holding" in stores:
+            stores["input"] = stores["holding"]
+        allowed_fcs: set[int] | None = None
+        try:
+            rf = int(read_fc) if read_fc is not None else None
+            wf = int(write_fc) if write_fc is not None else None
+        except (TypeError, ValueError):
+            rf = None
+            wf = None
+        if rf is not None or wf is not None:
+            allowed_fcs = set()
+            if rf is not None:
+                allowed_fcs.add(rf)
+            if wf is not None:
+                allowed_fcs.add(wf)
         device = DeviceContext(
             name=str(dev.get("name")),
             slave_id=int(dev.get("slave_id")),
             stores=stores,
+            profile_name=str(profile_name) if profile_name is not None else None,
+            read_fc=rf,
+            write_fc=wf,
+            allowed_function_codes=allowed_fcs,
         )
         devices.append(device)
 

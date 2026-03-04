@@ -32,15 +32,17 @@ class RegisterDef:
 class RegisterStore:
     def __init__(self, defs: Iterable[RegisterDef]):
         self.defs = list(defs)
-        self._by_addr: dict[int, RegisterDef] = {}
+        self._by_base: dict[int, RegisterDef] = {}
+        self._covers: dict[int, list[RegisterDef]] = {}
         self._values: dict[int, int] = {}
         self._lock = RLock()
 
         for reg in self.defs:
             length = max(1, int(reg.length))
+            self._by_base.setdefault(reg.address, reg)
             for offset in range(length):
                 addr = reg.address + offset
-                self._by_addr[addr] = reg
+                self._covers.setdefault(addr, []).append(reg)
                 self._values.setdefault(addr, 0)
 
         for reg in self.defs:
@@ -51,17 +53,21 @@ class RegisterStore:
                 self._values[reg.address + i] = int(val)
 
     def has_address(self, address: int) -> bool:
-        return address in self._by_addr
+        return address in self._covers
 
     def get_def(self, address: int) -> RegisterDef | None:
-        return self._by_addr.get(address)
+        reg = self._by_base.get(address)
+        if reg:
+            return reg
+        regs = self._covers.get(address) or []
+        return self._pick_preferred(regs)
 
     def read_raw(self, address: int, count: int) -> list[int]:
         if count <= 0:
             raise RegisterError(0x03, "invalid count")
         with self._lock:
             for i in range(count):
-                if (address + i) not in self._by_addr:
+                if (address + i) not in self._covers:
                     raise RegisterError(0x02, "illegal address")
             return [self._values.get(address + i, 0) for i in range(count)]
 
@@ -86,7 +92,7 @@ class RegisterStore:
         addr_map = {address + i: int(raw) & 0xFFFF for i, raw in enumerate(values)}
         impacted: dict[int, RegisterDef] = {}
         for addr in addr_map:
-            reg = self._by_addr.get(addr)
+            reg = self._select_reg_for_address(addr)
             if not reg:
                 raise RegisterError(0x02, "illegal address")
             impacted[reg.address] = reg
@@ -115,7 +121,7 @@ class RegisterStore:
                 raise RegisterError(0x03, "value too high")
 
     def get_engineering_value(self, base_address: int) -> float | int | str:
-        reg = self._by_addr.get(base_address)
+        reg = self._by_base.get(base_address) or self._select_reg_for_address(base_address)
         if not reg:
             raise RegisterError(0x02, "illegal address")
         raw = self.read_raw(reg.address, reg.length)
@@ -125,7 +131,7 @@ class RegisterStore:
         return val
 
     def set_engineering_value(self, base_address: int, value) -> None:
-        reg = self._by_addr.get(base_address)
+        reg = self._by_base.get(base_address) or self._select_reg_for_address(base_address)
         if not reg:
             raise RegisterError(0x02, "illegal address")
         if reg.access == "ro":
@@ -137,13 +143,39 @@ class RegisterStore:
         raw = encode_value(reg.data_type, raw_val, reg.length, reg.endian)
         self.write_raw(reg.address, raw)
 
+    def _select_reg_for_address(self, address: int) -> RegisterDef | None:
+        reg = self._by_base.get(address)
+        if reg:
+            return reg
+        regs = self._covers.get(address) or []
+        return self._pick_preferred(regs)
+
+    @staticmethod
+    def _pick_preferred(regs: list[RegisterDef]) -> RegisterDef | None:
+        if not regs:
+            return None
+        return min(regs, key=lambda reg: max(1, int(reg.length)))
+
 
 class DeviceContext:
-    def __init__(self, name: str, slave_id: int, stores: dict[str, RegisterStore]):
+    def __init__(
+        self,
+        name: str,
+        slave_id: int,
+        stores: dict[str, RegisterStore],
+        profile_name: str | None = None,
+        read_fc: int | None = None,
+        write_fc: int | None = None,
+        allowed_function_codes: set[int] | None = None,
+    ):
         self.name = name
         self.slave_id = slave_id
         self.stores = stores
         self.lock = RLock()
+        self.profile_name = profile_name
+        self.read_fc = read_fc
+        self.write_fc = write_fc
+        self.allowed_function_codes = allowed_function_codes
 
     def get_store(self, reg_type: str) -> RegisterStore:
         return self.stores.get(reg_type) or RegisterStore([])

@@ -244,6 +244,18 @@ class GuardedRequestHandler(ServerRequestHandler):
             response.dev_id = self.last_pdu.dev_id
             self.server_send(response, self.last_addr)
             return
+        allowed_by_unit = getattr(self.server, "allowed_function_codes_by_unit", None)
+        if allowed_by_unit is not None:
+            unit_allowed = allowed_by_unit.get(int(self.last_pdu.dev_id))
+            if unit_allowed is not None and self.last_pdu.function_code not in unit_allowed:
+                response = ExceptionResponse(
+                    self.last_pdu.function_code,
+                    exception_code=ExcCodes.ILLEGAL_FUNCTION,
+                )
+                response.transaction_id = self.last_pdu.transaction_id
+                response.dev_id = self.last_pdu.dev_id
+                self.server_send(response, self.last_addr)
+                return
         bus = getattr(self.server, "bus", None)
         if bus is not None:
             raw_req = bytes([self.last_pdu.function_code]) + self.last_pdu.encode()
@@ -263,10 +275,12 @@ class GuardedModbusTcpServer(ModbusTcpServer):
         self,
         *args,
         allowed_function_codes: set[int] | None = None,
+        allowed_function_codes_by_unit: dict[int, set[int]] | None = None,
         bus: VirtualBus | None = None,
         **kwargs,
     ):
         self.allowed_function_codes = allowed_function_codes
+        self.allowed_function_codes_by_unit = allowed_function_codes_by_unit
         self.bus = bus
         super().__init__(*args, **kwargs)
 
@@ -359,6 +373,7 @@ class ModbusServer:
             tracker = ConnectionTracker(int(self.runtime.get("max_connections", 0) or 0), self.metrics, tags)
             request_timeout_ms = int(self.runtime.get("request_timeout_ms", 0) or 0)
             slaves = {}
+            allowed_by_unit: dict[int, set[int]] = {}
             for name in device_names:
                 dev = self.registry.get_by_name(name)
                 if not dev:
@@ -371,6 +386,8 @@ class ModbusServer:
                     tracker,
                     request_timeout_ms,
                 )
+                if dev.allowed_function_codes is not None:
+                    allowed_by_unit[int(dev.slave_id)] = set(dev.allowed_function_codes)
             context = ModbusServerContext(devices=slaves, single=False)
             bus = VirtualBus(contexts=slaves, address_base=address_base, logger=self.logger)
             handle = ListenerHandle(port=port, thread=threading.Thread(target=lambda: None))
@@ -385,6 +402,7 @@ class ModbusServer:
                         address=("0.0.0.0", port),
                         trace_connect=tracker.trace,
                         allowed_function_codes={0x03, 0x04, 0x06, 0x10},
+                        allowed_function_codes_by_unit=allowed_by_unit or None,
                         bus=bus,
                     )
                     handle.loop = loop
