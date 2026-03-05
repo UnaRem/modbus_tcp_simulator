@@ -51,12 +51,121 @@ boundary_values:
     string: max
 
 simulation:
-  - name: Battery_Charging_Logic
-    interval: 1.0
+  - name: SetDefaultValues
+    interval: 0.5
     timeout_ms: 100
-    enabled: false
+    enabled: true
     script: |
       # 示例脚本：读取并写入
       # soc = get_value("BMS_1", 1303)
       # if soc < 100.0:
-      #     set_value("BMS_1", 1303, soc + 0.1)
+      # set_value("BMS_1", 1303, soc + 0.1)
+      set_value("PCS_1", 320, 0)
+      set_value("PCS_1", 321, 1)
+      set_value("PCS_1", 322, 1)
+      set_value("PCS_1", 323, 1)
+      set_value("PCS_1", 328, 0)
+      set_value("PCS_1", 329, 0)
+      set_value("PCS_1", 330, 0x0B00)
+      set_value("PCS_1", 334, 0)
+      set_value("PCS_1", 360, 0)
+      set_value("PCS_1", 757, 0)
+      set_value("PCS_1", 758, 0)
+      set_value("PCS_1", 790, 1)
+      set_value("PCS_1", 791, 1)
+      set_value("PCS_1", 792, 1)
+      set_value("PCS_1", 793, 1)
+      if get_meta("PCS_1", 794):
+        set_value("PCS_1", 794, 1)
+      if get_meta("PCS_1", 795):
+        set_value("PCS_1", 795, 1)
+      # BMS_1 4501 set bit Bit0:初始化, Bit1:就绪, Bit2:放电, Bit3:充电, Bit4:告警, Bit5:故障, Bit6:未使能 just one status enabled
+      set_bit("BMS_1", 4501, 0, 0)
+      set_bit("BMS_1", 4501, 1, 1)
+      set_bit("BMS_1", 4501, 2, 0)
+      set_bit("BMS_1", 4501, 3, 0)
+      set_bit("BMS_1", 4501, 4, 0)
+      set_bit("BMS_1", 4501, 5, 0)
+      set_bit("BMS_1", 4501, 6, 0)
+      # 4502 Bit0:0-未充满, 1-充满
+      set_bit("BMS_1", 4502, 0, 0)
+      # 4503 Bit0:0-未放空, 1-放空
+      set_bit("BMS_1", 4503, 0, 0)
+      # 4504-4513 set value 0 as no alarm
+      for i in range(4504, 4514):
+        set_value("BMS_1", i, 0)
+      # 4514-4531 uint32 set bit 0 or 1 set 0 default as no fault
+      for i in range(4514, 4532):
+        set_value("BMS_1", i, 0)
+      # 60101-60108 uint16 set bit 0 or 1, set 1 as relay close
+      for i in range(60101, 60109):
+        set_bit("BMS_1", i, 0, 1)
+      # 1001-1003 set value 0
+      set_value("BMS_1", 1001, 0)
+      set_value("BMS_1", 1002, 0)
+      set_value("BMS_1", 1003, 1)
+      # BMS_1 批量模拟：单体电压/温度/极柱温度/均衡温度
+      for i in range(10001, 10501):
+        set_value("BMS_1", i, 3300)
+      for i in range(30001, 30301):
+        set_value("BMS_1", i, 250)
+      for i in range(44001, 44101):
+        set_value("BMS_1", i, 260)
+      for i in range(46001, 46101):
+        set_value("BMS_1", i, 260)
+      # BMS_2
+      # 运行状态 0x2001（0 正常/1 禁充/2 禁放/3 待机/4 停机）
+      set_value("BMS_2", 0x2001, 0)
+      # 预充阶段 0x2002（0 断网/1 启动并网/2 并网中/3 并网成功/4 并网失败）
+      set_value("BMS_2", 0x2002, 1)
+      # 接触器状态 0x2003（bit0/1/2/3）
+      set_bit("BMS_2", 0x2003, 0, 1)  # 主接触器闭合
+      set_bit("BMS_2", 0x2003, 1, 1)  # 预充接触器闭合
+      set_value("BMS_2", 0x2004, 0)  
+      # 0x2005-0x2009 set 0
+      set_value("BMS_2", 0x2005, 0)
+      set_value("BMS_2", 0x2006, 0)
+      set_value("BMS_2", 0x2007, 0)
+      set_value("BMS_2", 0x2008, 0)
+      set_value("BMS_2", 0x2009, 0)
+      set_value("BMS_2", 0x200D, 0)
+      set_value("BMS_2", 0x3001, 0x0)
+      set_value("BMS_2", 0x3004, 0x4)
+      set_value("BMS_2", 0x3016, 100)
+      set_value("BMS_2", 0x3017, 2)
+      set_value("BMS_2", 0x3018, 1)
+      set_value("BMS_2", 0x301F, 0)
+      set_value("BMS_2", 0x3020, 0x1)
+      set_value("BMS_2", 0x3040, 0x1)
+      # 0x3060-0x3061 and 0x3068 set 0x1 normal
+      set_value("BMS_2", 0x3060, 0x1)
+      set_value("BMS_2", 0x3061, 0x1)
+      set_value("BMS_2", 0x3068, 0x1)
+      # 0x4001-0x4002 set 0 as normal
+      set_value("BMS_2", 0x4000, 0)
+      set_value("BMS_2", 0x4001, 0)
+      set_value("BMS_2", 0x4002, 0)
+      set_value("BMS_2", 0x4003, 101)
+      set_value("BMS_2", 0x4007, 2)
+      # 0x4100-0x4101 set 0x0
+      set_value("BMS_2", 0x4100, 0x0)
+      set_value("BMS_2", 0x4101, 0x0)
+      # 0x4500-0x451B uint16 set bit 1 as battery had balancing
+      for i in range(0x4500, 0x451C):
+        set_value("BMS_2", i, 0)
+        set_bit("BMS_2", i, 0, 1)
+      # 0x5001-0x5002 set all bit 1
+      for i in range(0x5001, 0x5003):
+        set_value("BMS_2", i, 0)
+        set_bit("BMS_2", i, 0, 1)
+      # 0x5003-0x5010 set value 0x2 (normal)
+      for i in range(0x5003, 0x5011):
+        set_value("BMS_2", i, 0x2)
+      # 0x5011-0x5012 set all bit 1 
+      for i in range(0x5011, 0x5014):
+        set_value("BMS_2", i, 0)
+        set_bit("BMS_2", i, 0, 1)
+      # set_bit("PCS_1", 32, 0, 1)
+      # set_bit("PCS_1", 32, 3, 1)
+      # v = get_bit("PCS_1", 32, 1)
+      # set_bit("PCS_1", 32, 1, 0 if v else 1)
