@@ -156,7 +156,7 @@ def load_builtin_profiles() -> dict[str, dict]:
     for model, profile_name in pcs_models.items():
         regs = load_pcs_register_map(model=model)
         profiles[profile_name] = {
-            "description": f"builtin from pcs_register_map ({model})",
+            "description": "来源: docs/设备数据点表/sinosoar-pcs-sp30hbg2&sp60hbg2&sp100hx&sp125hx.md",
             "read_fc": PCS_READ_REGISTER,
             "write_fc": PCS_WRITE_REGISTER,
             "ignore_fallback": True,
@@ -170,9 +170,10 @@ def load_builtin_profiles() -> dict[str, dict]:
         }
 
     profiles["pw-100261a"] = {
-        "description": "builtin from bms_pw_100261a_register_map",
+        "description": "来源: docs/设备数据点表/pw-100261a.md",
         "read_fc": PW_READ_REGISTER,
         "write_fc": PW_WRITE_REGISTER,
+        "mirror_input_to_holding": True,
         "ignore_fallback": True,
         "allow_overlap": True,
         "registers": _build_registers(
@@ -186,7 +187,7 @@ def load_builtin_profiles() -> dict[str, dict]:
         return "holding"
 
     profiles["cimc-ess-832-314-dc-c"] = {
-        "description": "builtin from bms_cimc_ess_832_314_register_map",
+        "description": "来源: docs/设备数据点表/cimc-ess-832-314-dc-c.md",
         "read_fc": CIMC_READ_REGISTER,
         "write_fc": CIMC_WRITE_REGISTER,
         "mirror_input_to_holding": True,
