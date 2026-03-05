@@ -71,6 +71,48 @@ class RegisterStore:
                     raise RegisterError(0x02, "illegal address")
             return [self._values.get(address + i, 0) for i in range(count)]
 
+    def get_bit(self, address: int, bit_index: int) -> int:
+        reg = self._by_base.get(address) or self._select_reg_for_address(address)
+        if not reg:
+            raise RegisterError(0x02, "illegal address")
+        if (
+            reg.reg_type not in ("coil", "discrete")
+            and reg.data_type not in ("int16", "uint16", "int32", "uint32")
+            and not (reg.bits and len(reg.bits) > 0)
+        ):
+            raise RegisterError(0x03, "bit not supported")
+        width = self._bit_width(reg)
+        if bit_index < 0 or bit_index >= width:
+            raise RegisterError(0x03, "bit out of range")
+        raw = self.read_raw(reg.address, reg.length)
+        value = self._raw_to_uint(reg, raw)
+        return 1 if ((value >> bit_index) & 0x1) else 0
+
+    def set_bit(self, address: int, bit_index: int, value: int | bool) -> None:
+        reg = self._by_base.get(address) or self._select_reg_for_address(address)
+        if not reg:
+            raise RegisterError(0x02, "illegal address")
+        if reg.access == "ro":
+            raise RegisterError(0x03, "read only")
+        if (
+            reg.reg_type not in ("coil", "discrete")
+            and reg.data_type not in ("int16", "uint16", "int32", "uint32")
+            and not (reg.bits and len(reg.bits) > 0)
+        ):
+            raise RegisterError(0x03, "bit not supported")
+        width = self._bit_width(reg)
+        if bit_index < 0 or bit_index >= width:
+            raise RegisterError(0x03, "bit out of range")
+        raw = self.read_raw(reg.address, reg.length)
+        current = self._raw_to_uint(reg, raw)
+        mask = 1 << bit_index
+        if int(value):
+            current |= mask
+        else:
+            current &= ~mask
+        new_raw = encode_value(self._bit_data_type(reg), current, reg.length, reg.endian)
+        self.write_raw(reg.address, new_raw)
+
     def validate_write(self, address: int, values: Iterable[int]) -> None:
         values = list(values)
         if not values:
@@ -143,6 +185,26 @@ class RegisterStore:
         raw = encode_value(reg.data_type, raw_val, reg.length, reg.endian)
         self.write_raw(reg.address, raw)
 
+    @staticmethod
+    def _bit_data_type(reg: RegisterDef) -> str:
+        if reg.length and int(reg.length) > 1:
+            return "uint32"
+        return "uint16"
+
+    @staticmethod
+    def _bit_width(reg: RegisterDef) -> int:
+        length = max(1, int(reg.length or 1))
+        if reg.reg_type in ("coil", "discrete"):
+            return 1
+        return 16 * length
+
+    def _raw_to_uint(self, reg: RegisterDef, raw: list[int]) -> int:
+        data_type = self._bit_data_type(reg)
+        value = decode_value(data_type, raw, reg.endian)
+        if data_type == "uint16":
+            return int(value) & 0xFFFF
+        return int(value) & 0xFFFFFFFF
+
     def _select_reg_for_address(self, address: int) -> RegisterDef | None:
         reg = self._by_base.get(address)
         if reg:
@@ -191,6 +253,20 @@ class DeviceContext:
     def validate_write(self, reg_type: str, address: int, values: Iterable[int]) -> None:
         with self.lock:
             self.get_store(reg_type).validate_write(address, values)
+
+    def get_bit(self, address: int, bit_index: int) -> int:
+        with self.lock:
+            for store in self.stores.values():
+                if store.has_address(address):
+                    return store.get_bit(address, bit_index)
+        raise RegisterError(0x02, "illegal address")
+
+    def set_bit(self, address: int, bit_index: int, value: int | bool) -> None:
+        with self.lock:
+            for store in self.stores.values():
+                if store.has_address(address):
+                    return store.set_bit(address, bit_index, value)
+        raise RegisterError(0x02, "illegal address")
 
     def get_engineering_value(self, address: int):
         with self.lock:

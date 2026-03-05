@@ -201,8 +201,16 @@ def _boundary_default(
     limit: tuple[float, float] | None,
     default_value: float | None,
 ):
-    if reg_type in ("coil", "discrete") or (bits and isinstance(bits, dict) and len(bits) > 0):
+    if reg_type in ("coil", "discrete"):
         return int(bit_value)
+    if bits and isinstance(bits, dict) and len(bits) > 0:
+        if int(bit_value):
+            length_words = max(1, int(length or 1))
+            width = 16 * length_words
+            if width >= 32:
+                return 0xFFFFFFFF
+            return (1 << width) - 1
+        return 0
     mode = str(boundary_types.get(data_type, "min")).strip().lower()
     use_max = mode == "max"
     if data_type in ("int16", "uint16", "int32", "uint32", "float32"):
@@ -696,10 +704,7 @@ def build_device_registry(cfg: dict, base_dir: Path) -> DeviceRegistry:
 
     normalizer = ConfigNormalizer()
     cfg = normalizer.apply_defaults(cfg)
-    profile_files = resolve_profile_files(cfg, base_dir)
-    profiles = load_profiles(profile_files)
-    profiles.update(cfg.get("profiles") or {})
-    profiles = _merge_profiles(load_builtin_profiles(), profiles)
+    profiles = load_builtin_profiles()
     errors = ConfigValidator(profiles).validate(cfg)
     if errors:
         detail = "\n- " + "\n- ".join(errors)

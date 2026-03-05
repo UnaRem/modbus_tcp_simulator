@@ -25,8 +25,11 @@ class ScriptRunner:
         api = {
             "get_value": self.get_value,
             "set_value": self.set_value,
+            "get_bit": self.get_bit,
+            "set_bit": self.set_bit,
             "get_meta": self.get_meta,
             "log": self.log,
+            "range": range,
         }
         locals_scope = dict(api)
         if context:
@@ -85,8 +88,27 @@ class ScriptRunner:
                     "scale": reg.scale,
                     "offset": reg.offset,
                     "access": reg.access,
+                    "bits": dict(reg.bits or {}),
                 }
         return {}
+
+    def get_bit(self, device_name: str, address: int, bit_index: int) -> int:
+        device = self.registry.get_by_name(device_name)
+        if not device:
+            raise ScriptError(f"unknown device: {device_name}")
+        try:
+            return device.get_bit(address, int(bit_index))
+        except RegisterError as exc:
+            raise ScriptError(str(exc)) from exc
+
+    def set_bit(self, device_name: str, address: int, bit_index: int, value: int | bool) -> None:
+        device = self.registry.get_by_name(device_name)
+        if not device:
+            raise ScriptError(f"unknown device: {device_name}")
+        try:
+            device.set_bit(address, int(bit_index), value)
+        except RegisterError as exc:
+            raise ScriptError(str(exc)) from exc
 
     def log(self, level: str, message: str) -> None:
         self.logger.event(level, {"msg": message})
