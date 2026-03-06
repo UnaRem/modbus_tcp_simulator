@@ -39,7 +39,7 @@ PCS_REGISTER_MAP: List[PCSRegisterDefinition] = [
     PCSRegisterDefinition(0, 16, 'manufacturer_and_model_number', '版本型号', 'RO', '', 1.0, 0, 'string', '静态组', ('SP30HBG2', 'SP100HX', 'SP125HX', 'SP60HBG2'), None),
     PCSRegisterDefinition(1, 1, 'reg_1', '机型', 'RO', '', 1.0, 0, 'uint16', '静态组', ('SP30HBG2', 'SP100HX', 'SP125HX', 'SP60HBG2'), None),
     PCSRegisterDefinition(2, 1, 'reg_2', '子型号', 'RO', '', 1.0, 0, 'uint16', '静态组', ('SP30HBG2', 'SP100HX', 'SP125HX', 'SP60HBG2'), None),
-    PCSRegisterDefinition(3, 1, 'pv', 'PV', 'RO', '', 1.0, 0, 'uint16', '静态组', ('SP30HBG2', 'SP60HBG2'), None),
+    PCSRegisterDefinition(3, 1, 'pv', 'PV', 'RWO', '', 1.0, 0, 'uint16', '静态组', ('SP30HBG2', 'SP60HBG2'), None),
     PCSRegisterDefinition(10, 2, 'u1_dsp_bl', 'U1_DSP_BL版本号', 'RO', '', 1.0, 0, 'uint32', '静态组', ('SP30HBG2', 'SP100HX', 'SP125HX', 'SP60HBG2'), None),
     PCSRegisterDefinition(12, 2, 'reg_12', '硬件版本号', 'RO', '', 1.0, 0, 'uint32', '静态组', ('SP30HBG2', 'SP100HX', 'SP125HX', 'SP60HBG2'), None),
     PCSRegisterDefinition(14, 2, 'u1_dsp', 'U1_DSP版本号', 'RO', '', 1.0, 0, 'uint32', '静态组', ('SP30HBG2', 'SP100HX', 'SP125HX', 'SP60HBG2'), None),

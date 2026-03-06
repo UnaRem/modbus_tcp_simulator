@@ -79,6 +79,8 @@ simulation:
         set_value("PCS_1", 794, 1)
       if get_meta("PCS_1", 795):
         set_value("PCS_1", 795, 1)
+      set_value("PCS_1", 330, 0x0B00)
+      set_value("PCS_2", 3, 1)
       # BMS_1 4501 set bit Bit0:初始化, Bit1:就绪, Bit2:放电, Bit3:充电, Bit4:告警, Bit5:故障, Bit6:未使能 just one status enabled
       set_bit("BMS_1", 4501, 0, 0)
       set_bit("BMS_1", 4501, 1, 1)
