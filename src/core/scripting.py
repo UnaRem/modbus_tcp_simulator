@@ -29,6 +29,9 @@ class ScriptRunner:
             "set_bit": self.set_bit,
             "get_meta": self.get_meta,
             "log": self.log,
+            "min": min,
+            "max": max,
+            "abs": abs,
             "range": range,
         }
         locals_scope = dict(api)

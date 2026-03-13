@@ -34,8 +34,8 @@ devices:
     profile: cimc-ess-832-314-dc-c
 
 boundary_values:
-  enabled: true
-  bit: 1
+  enabled: false
+  bit: 0
   types:
     # int16: min
     # uint16: min
@@ -55,11 +55,34 @@ simulation:
     interval: 0.5
     timeout_ms: 100
     enabled: true
+    run_once: true
     script: |
       # 示例脚本：读取并写入
       # soc = get_value("BMS_1", 1303)
       # if soc < 100.0:
       # set_value("BMS_1", 1303, soc + 0.1)
+      set_value("PCS_1", 32, 0)
+      set_value("PCS_1", 50, 0)
+      set_value("PCS_1", 51, 0)
+      set_value("PCS_1", 52, 0)
+      set_value("PCS_1", 53, 0)
+      set_value("PCS_1", 54, 0)
+      set_bit("PCS_1", 32, 2, 0)
+      set_bit("PCS_1", 32, 3, 0)
+      set_value("PCS_2", 32, 0)
+      set_value("PCS_2", 50, 0)
+      set_value("PCS_2", 51, 0)
+      set_value("PCS_2", 52, 0)
+      set_value("PCS_2", 53, 0)
+      set_value("PCS_2", 54, 0)
+      set_bit("PCS_2", 32, 2, 0)
+      set_bit("PCS_2", 32, 3, 0)
+      set_value("PCS_1", 110, 0)
+      set_value("PCS_1", 111, 0)
+      set_value("PCS_1", 112, 0)
+      set_value("PCS_1", 122, 0)
+      set_value("PCS_1", 135, 0)
+      set_value("PCS_1", 141, 0)
       set_value("PCS_1", 320, 0)
       set_value("PCS_1", 321, 1)
       set_value("PCS_1", 322, 1)
@@ -80,7 +103,7 @@ simulation:
       if get_meta("PCS_1", 795):
         set_value("PCS_1", 795, 1)
       set_value("PCS_1", 330, 0x0B00)
-      set_value("PCS_2", 3, 1)
+      set_value("PCS_2", 3, 0)
       # BMS_1 4501 set bit Bit0:初始化, Bit1:就绪, Bit2:放电, Bit3:充电, Bit4:告警, Bit5:故障, Bit6:未使能 just one status enabled
       set_bit("BMS_1", 4501, 0, 0)
       set_bit("BMS_1", 4501, 1, 1)
@@ -117,13 +140,13 @@ simulation:
         set_value("BMS_1", i, 260)
       # BMS_2
       # 运行状态 0x2001（0 正常/1 禁充/2 禁放/3 待机/4 停机）
-      set_value("BMS_2", 0x2001, 0)
+      set_value("BMS_2", 0x2001, 3)
       # 预充阶段 0x2002（0 断网/1 启动并网/2 并网中/3 并网成功/4 并网失败）
-      set_value("BMS_2", 0x2002, 1)
+      set_value("BMS_2", 0x2002, 3)
       # 接触器状态 0x2003（bit0/1/2/3）
       set_bit("BMS_2", 0x2003, 0, 1)  # 主接触器闭合
-      set_bit("BMS_2", 0x2003, 1, 1)  # 预充接触器闭合
-      set_value("BMS_2", 0x2004, 0)  
+      set_bit("BMS_2", 0x2003, 1, 0)  # 预充接触器断开
+      set_value("BMS_2", 0x2004, 0)
       # 0x2005-0x2009 set 0
       set_value("BMS_2", 0x2005, 0)
       set_value("BMS_2", 0x2006, 0)
@@ -171,3 +194,50 @@ simulation:
       # set_bit("PCS_1", 32, 3, 1)
       # v = get_bit("PCS_1", 32, 1)
       # set_bit("PCS_1", 32, 1, 0 if v else 1)
+  - name: LinkPCSAndBMS
+    interval: 1.0
+    timeout_ms: 100
+    enabled: true
+    script: |
+      if not state.get("seeded"):
+        state["seeded"] = True
+        set_value("BMS_1", 1301, 768.0)
+        set_value("BMS_1", 1302, 0.0)
+        set_value("BMS_1", 1303, 50.0)
+        set_value("BMS_1", 1304, 98.0)
+        set_value("BMS_1", 1332, 50.0)
+        set_value("BMS_1", 1341, 130.0)
+        set_value("BMS_1", 1342, 130.0)
+        set_value("BMS_2", 0x200B, 768.0)
+        set_value("BMS_2", 0x200C, 0.0)
+        set_value("BMS_2", 0x200E, 500.0)
+        set_value("BMS_2", 0x200F, 980.0)
+        set_value("BMS_2", 0x2028, 130.0)
+        set_value("BMS_2", 0x2029, 130.0)
+      pcs_power_kw = get_value("PCS_1", 135)
+      direction = -1 if pcs_power_kw > 0 else (1 if pcs_power_kw < 0 else 0)
+      step_soc = 1.0 if direction != 0 else 0.0
+      step_soc_bms2 = 10.0 if direction != 0 else 0.0
+      display_current_a = abs(pcs_power_kw) * 10.0
+      bms_soc = get_value("BMS_1", 1303)
+      next_soc = min(100.0, max(0.0, bms_soc + (direction * step_soc)))
+      bms_voltage = 700.0 + (next_soc * 1.2) + (5.0 * direction)
+      set_value("BMS_1", 1303, next_soc)
+      set_value("BMS_1", 1332, next_soc)
+      set_value("BMS_1", 1301, bms_voltage)
+      set_value("BMS_1", 1302, display_current_a)
+      set_bit("BMS_1", 4501, 2, 1 if pcs_power_kw > 0 else 0)
+      set_bit("BMS_1", 4501, 3, 1 if pcs_power_kw < 0 else 0)
+      set_bit("BMS_1", 4502, 0, 1 if next_soc >= 99.9 else 0)
+      set_bit("BMS_1", 4503, 0, 1 if next_soc <= 0.1 else 0)
+      set_value("BMS_2", 0x3029, pcs_power_kw)
+      set_value("BMS_2", 0x302A, pcs_power_kw / 3.0)
+      set_value("BMS_2", 0x302B, pcs_power_kw / 3.0)
+      set_value("BMS_2", 0x302C, pcs_power_kw / 3.0)
+      bms2_soc = get_value("BMS_2", 0x200E)
+      next_bms2_soc = min(1000.0, max(0.0, bms2_soc + (direction * step_soc_bms2)))
+      set_value("BMS_2", 0x200B, bms_voltage)
+      set_value("BMS_2", 0x200C, -display_current_a if pcs_power_kw > 0 else display_current_a)
+      set_value("BMS_2", 0x200D, 1 if pcs_power_kw < 0 else (2 if pcs_power_kw > 0 else 0))
+      set_value("BMS_2", 0x2001, 0 if pcs_power_kw != 0 else 3)
+      set_value("BMS_2", 0x200E, next_bms2_soc)

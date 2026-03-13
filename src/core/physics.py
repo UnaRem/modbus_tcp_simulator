@@ -54,6 +54,8 @@ class PhysicsEngine:
                         "error_count": 0,
                         "disabled": False,
                         "name": item.get("name") or "script",
+                        "state": {},
+                        "run_once": bool(item.get("run_once", False)),
                     }
                 )
             except Exception as exc:
@@ -81,8 +83,10 @@ class PhysicsEngine:
                     if scale > 0:
                         dt_s *= scale
                     try:
-                        self.runner.run(item["code"], item["timeout_ms"], {"dt_s": dt_s})
+                        self.runner.run(item["code"], item["timeout_ms"], {"dt_s": dt_s, "state": item["state"]})
                         item["error_count"] = 0
+                        if item.get("run_once"):
+                            item["disabled"] = True
                     except Exception as exc:
                         if self.metrics:
                             self.metrics.inc("script_errors_total", 1.0, {"name": item["name"]})
