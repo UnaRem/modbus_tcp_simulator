@@ -220,6 +220,13 @@ class RegisterStore:
 
 
 class DeviceContext:
+    _PCS_START_STOP_COMMANDS: dict[int, dict[int, int]] = {
+        650: {1: 1},
+        651: {1: 0},
+        662: {0: 0, 2: 1},
+        663: {0: 0, 1: 1},
+    }
+
     def __init__(
         self,
         name: str,
@@ -248,7 +255,9 @@ class DeviceContext:
 
     def write_raw(self, reg_type: str, address: int, values: Iterable[int]) -> None:
         with self.lock:
-            self.get_store(reg_type).write_raw(address, values)
+            raw_values = list(values)
+            self.get_store(reg_type).write_raw(address, raw_values)
+            self._sync_pcs_start_stop_state(reg_type, address, raw_values)
 
     def validate_write(self, reg_type: str, address: int, values: Iterable[int]) -> None:
         with self.lock:
@@ -281,6 +290,23 @@ class DeviceContext:
                 if store.has_address(address):
                     return store.set_engineering_value(address, value)
         raise RegisterError(0x02, "illegal address")
+
+    def _sync_pcs_start_stop_state(self, reg_type: str, address: int, values: list[int]) -> None:
+        if reg_type != "holding":
+            return
+        if not (self.profile_name or "").startswith("sinosoar-pcs-"):
+            return
+        target_state: int | None = None
+        for offset, raw in enumerate(values):
+            target_state = self._PCS_START_STOP_COMMANDS.get(address + offset, {}).get(int(raw) & 0xFFFF)
+            if target_state is not None:
+                break
+        if target_state is None:
+            return
+        store = self.stores.get("holding")
+        if not store or not store.has_address(32):
+            return
+        store.set_bit(32, 2, target_state)
 
 
 class DeviceRegistry:
